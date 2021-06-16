@@ -35,7 +35,7 @@ const Navbar = (props) => {
       ? "text-green-300 hover:text-white"
       : "text-gray-300 hover:text-white";
   return (
-    <div className="fixed w-screen h-15 top-0 text-lg navbar">
+    <div className="fixed w-screen h-15 text-lg navbar z-50">
       <div className="absolute left-5 top-2">
         <Image
           src="/images/logoLight.png"
@@ -64,7 +64,7 @@ const Navbar = (props) => {
         <Link href="/showcase">
           <a className={showcase}>Showcase</a>
         </Link>
-        <Link href="/network">
+        <Link href="/alumni">
           <a className={alumni}>Alumni</a>
         </Link>
         <Link href="https://shitpost.wearemist.in/" passHref={true}>

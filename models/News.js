@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const NewsSchema = new mongoose.Schema({
-  newHeading: {
+  newsHeading: {
     type: String,
     required: [true, "Title of the news is required"],
   },
@@ -26,9 +26,12 @@ const NewsSchema = new mongoose.Schema({
     required: [true, "Source of the article is required"],
   },
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: Writer,
+    type: String,
     required: [true, "Author of the article is required"],
+  },
+  link: {
+    type: String,
+    required: [true, "Link to original article is required"],
   },
   filtertag: {
     type: String,

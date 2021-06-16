@@ -8,6 +8,8 @@ const AlumniSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
+    default:
+      "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg",
   },
   position: {
     type: String,

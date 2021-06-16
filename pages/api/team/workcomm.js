@@ -1,5 +1,5 @@
-import dbConnect from "../../utils/dbConnect";
-import Workcomm from "../../models/Workcomm";
+import dbConnect from "../../../utils/dbConnect";
+import Workcomm from "../../../models/Workcomm";
 
 export default async function handler(req, res) {
   await dbConnect();

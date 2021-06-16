@@ -46,7 +46,7 @@ const Team = ({ board, mancomm, workcomm }) => {
           Even the Board agrees that we do the most work in the club, but they
           would never admit it publicly. We are the hardest working people in
           the club. We slog through this hardship to qualify for the board seats
-          and become the next epitome of laziness.
+          and to become the next epitome of laziness.
         </p>
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 mx-auto">
           {mancomm.data.map((item) => (
@@ -75,7 +75,7 @@ const Team = ({ board, mancomm, workcomm }) => {
           information for us, although it is a fact that we do more work than
           the Board.
         </p>
-        <div className="p-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1 mx-auto">
+        <div className="p-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-1 mx-auto">
           {workcomm.data.map((item) => (
             <TeamCard
               key={item._id}
@@ -100,11 +100,11 @@ const Team = ({ board, mancomm, workcomm }) => {
 export default Team;
 
 export const getStaticProps = async () => {
-  const resBoard = await fetch(`${SITE_DOMAIN}/api/board`);
+  const resBoard = await fetch(`${SITE_DOMAIN}/api/team/board`);
   const board = await resBoard.json();
-  const resMancomm = await fetch(`${SITE_DOMAIN}/api/mancomm`);
+  const resMancomm = await fetch(`${SITE_DOMAIN}/api/team/mancomm`);
   const mancomm = await resMancomm.json();
-  const resWorkcomm = await fetch(`${SITE_DOMAIN}/api/workcomm`);
+  const resWorkcomm = await fetch(`${SITE_DOMAIN}/api/team/workcomm`);
   const workcomm = await resWorkcomm.json();
 
   return {

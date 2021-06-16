@@ -85,10 +85,10 @@ export default function Home() {
     },
     {
       id: 6,
-      img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
+      img: "https://cdn.vox-cdn.com/thumbor/NeSo4JAqv-fFJCIhb5K5eBqvXG4=/7x0:633x417/1200x800/filters:focal(7x0:633x417)/cdn.vox-cdn.com/assets/1311169/mslogo.jpg",
       title: "Game Nights",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nibh vitae enim eleifend lobortis. In hac habitasse platea dictumst. Nullam id ipsum ut ipsum ornare bibendum. Sed convallis arcu ac vestibulum volutpat.",
+        "MIST organizes gaming nights every once in a while, which serve as a bonding experience between the club members. It involves various games for every type of enthusiast. From combats in Valorant to screwing up drawings in scribble. Whatever you feel like playing, you will always find company.",
     },
   ];
 
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="h-52 w-auto md:w-1/2">
           <img className="h-full" src={item.img} />
         </div>
-        <div className="w-full py-4 px-6 text-gray-50 flex flex-col justify-center bg-transparent">
+        <div className="w-full py-4 px-6  flex flex-col justify-center bg-transparent">
           <h3 className="text-xl leading-tight truncate mb-2 font-extrabold text-blue-300">
             {item.title}
           </h3>
@@ -132,18 +132,18 @@ export default function Home() {
         <main>
           {/* Intro section */}
           <div className="text-center flex flex-col justify-center h-screen">
-            <p className="text-gray-50 lg:text-lg text-base">
+            <p className="lg:text-lg text-base">
               We are a community of cybersecurity enthusisasts, known as the
             </p>
             <h1 className="text-center lg:text-9xl text-5xl font-black gradient-text emphasis-heading">
               Manipal Information <br /> Security Team
             </h1>
-            <p className="text-gray-50 lg:text-lg text-base">
+            <p className="lg:text-lg text-base">
               from the Manipal Institute of Technology, India
             </p>
           </div>
           {/* Who are we section */}
-          <div className="h-66 flex md:flex-row flex-col justify-center text-gray-50">
+          <div className="h-66 flex md:flex-row flex-col justify-center">
             <div className="w-1/2 flex flex-col justify-center px-10">
               <h2 className="text-3xl rainbow-text">Who are we?</h2>
               <p>
@@ -176,7 +176,7 @@ export default function Home() {
             </p>
           </div>
           {/* What we do section */}
-          <div className="text-gray-50 px-10 min-h-screen pt-20">
+          <div className="px-10 min-h-screen pt-20">
             <h2 className="text-3xl rainbow-text text-center">
               What do we do?
             </h2>
@@ -186,13 +186,13 @@ export default function Home() {
               organize awesome events, and even host awesome game nights within
               the club. In all, we are an awesome club of an awesome university.
             </p>
-            <div className="text-gray-50 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {whatwedocards}
             </div>
           </div>
           {/* Quote section */}
           <div className="py-10 lg:w-3/4 mx-auto">
-            <blockquote className="text-center text-3xl font-black emphasis-heading text-gray-50 text-image-beach">
+            <blockquote className="text-center text-3xl font-black emphasis-heading  text-image-beach">
               "Arguing that you don’t care about the right to privacy because
               you have nothing to hide is no different than saying you don’t
               care about free speech because you have nothing to say."
@@ -202,7 +202,7 @@ export default function Home() {
             </p>
           </div>
           {/* Events section */}
-          <div className="text-gray-50 px-10 min-h-screen pt-20 pb-20">
+          <div className="px-10 min-h-screen pt-20 pb-20">
             <h2 className="text-3xl rainbow-text text-center">
               Awesome Activities
             </h2>
@@ -213,7 +213,7 @@ export default function Home() {
               what makes us so different from other clubs. We believe in
               Awesomeness.
             </p>
-            <div className="text-gray-50 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
               {eventCards}
             </div>
           </div>

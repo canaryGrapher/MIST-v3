@@ -17,7 +17,12 @@ const WriterSchema = new mongoose.Schema({
   },
   about: {
     type: String,
-    required: [true, "Description is required"],
+    default: "This user has not submitted this section."
+  },
+  username: {
+    type: String,
+    required: [true, "Username is required"],
+    unique: [true, "Unique username is required"],
   },
   social: {
     linkedin: {

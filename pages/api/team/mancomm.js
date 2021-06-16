@@ -1,5 +1,5 @@
-import dbConnect from "../../utils/dbConnect";
-import Mancomm from "../../models/Mancomm";
+import dbConnect from "../../../utils/dbConnect";
+import Mancomm from "../../../models/Mancomm";
 
 export default async function handler(req, res) {
   await dbConnect();
