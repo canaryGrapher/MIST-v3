@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Fragment } from "react";
 import "tailwindcss/tailwind.css";
 
 export default function Home() {
@@ -53,7 +54,7 @@ export default function Home() {
       img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
       title: "Cybersecurity for everyone",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nibh vitae enim eleifend lobortis. In hac habitasse platea dictumst. Nullam id ipsum ut ipsum ornare bibendum. Sed convallis arcu ac vestibulum volutpat.",
+        "One of our standard events meant to raise awareness about cybersecurity, the threats that the internet poses, the various ways in which the internet can spoof you, and at the same time presents people with a fair idea on how to guard against these very dangers.",
     },
     {
       id: 2,
@@ -67,14 +68,14 @@ export default function Home() {
       img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
       title: "CTF",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nibh vitae enim eleifend lobortis. In hac habitasse platea dictumst. Nullam id ipsum ut ipsum ornare bibendum. Sed convallis arcu ac vestibulum volutpat.",
+        "We, as a club, organise Capture the Flag events twice a year. With challenges spread out over multiple domains including web exploitation, pwning, reverse engineering, and cryptography, this event has garnered participation from over 7 countries this year. Having participated in CTFs as a team, we realise its importance for people who are delving into cybersecurity.",
     },
     {
       id: 4,
       img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
       title: "Ctrl+C",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nibh vitae enim eleifend lobortis. In hac habitasse platea dictumst. Nullam id ipsum ut ipsum ornare bibendum. Sed convallis arcu ac vestibulum volutpat.",
+        "Combining web development skills with a bit of cybersecurity knowledge, our event CTRL+C requires participants to perform two tasks. They need to clone a website, created from scratch by our team, and then go on to find out as much information as possible about any user who visits the hosted site. It is an ideal blend of technical and design skills. ",
     },
     {
       id: 5,
@@ -123,22 +124,22 @@ export default function Home() {
   });
 
   return (
-    <div>
-      <div className="container py-20">
+    <Fragment>
+      <div className="container pb-20 pt-5 w-screen mx-auto">
         <Head>
           <title>Manipal Information Security Team</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
           {/* Intro section */}
-          <div className="text-center flex flex-col justify-center h-screen">
-            <p className="lg:text-lg text-base">
+          <div className="text-center flex flex-col justify-center min-h-screen">
+            <p className="lg:text-lg text-base text-gray-400">
               We are a community of cybersecurity enthusisasts, known as the
             </p>
             <h1 className="text-center lg:text-9xl text-5xl font-black gradient-text emphasis-heading">
               Manipal Information <br /> Security Team
             </h1>
-            <p className="lg:text-lg text-base">
+            <p className="lg:text-lg text-base text-gray-400">
               from the Manipal Institute of Technology, India
             </p>
           </div>
@@ -221,7 +222,6 @@ export default function Home() {
         <style jsx>{`
           .container {
             min-height: 100vh;
-            padding: 0 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -290,6 +290,6 @@ export default function Home() {
           }
         `}</style>
       </div>
-    </div>
+    </Fragment>
   );
 }

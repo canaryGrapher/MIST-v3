@@ -6,7 +6,7 @@ import NewsCard from "../../components/NewsCard";
 
 const News = ({ news, categories, bgHolder }) => {
   return (
-    <div className="text-center min-h-screen py-20 container news">
+    <div className="text-center min-h-screen py-20 container mx-auto">
       <Head>
         <title>CyberManipal | News by Manipal Information Security Team</title>
         <link rel="icon" href="/favicon.ico" />
@@ -162,13 +162,12 @@ const News = ({ news, categories, bgHolder }) => {
         </div>
       </div>
       {/* Subscibe Section */}
-      <div className=""></div>
+      <div className="">
+        
+      </div>
       {/* Join our team section */}
       <div className=""></div>
       <style jsx>{`
-        .news {
-          background-color: #121212;
-        }
         .main-news-heading {
           height: 700px;
         }

@@ -4,12 +4,13 @@ import TeamCard from "../components/TeamCard.js";
 
 const Team = ({ board, mancomm, workcomm }) => {
   return (
-    <div className="text-center container text-gray-50 py-20 min-h-screen">
+    <div className="text-center container mx-auto text-gray-50 py-20 min-h-screen">
       <Head>
         <title>Team | Manipal Information Security Team</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-5xl emphasis-heading pt-10">Meet the Team</h1>
+      <h1 className="text-5xl emphasis-heading pt-10 font-extrabold">Meet the Team</h1>
+      <p>Take a look at all the members of the club who make it so awesome</p>
       {/* Rendering Board section */}
       <div className="pt-20">
         <h2 className="text-3xl rainbow-text emphasis-heading font-semibold">

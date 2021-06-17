@@ -28,7 +28,7 @@ const Network = ({ alumni, batches }) => {
   });
 
   return (
-    <div className="container pt-20 min-h-screen text-center">
+    <div className="container mx-auto pt-20 min-h-screen text-center">
       <Head>
         <title>Alumni | Manipal Information Security Team</title>
         <link rel="icon" href="/favicon.ico" />
