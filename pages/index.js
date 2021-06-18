@@ -115,9 +115,9 @@ export default function Home() {
         className="flex flex-col md:flex-row overflow-hidden rounded-lg shadow-xl mt-4 w-100 mx-2"
       >
         <div className="h-52 w-auto md:w-1/2">
-          <img className="h-full" src={item.img} />
+          <img className="h-full mx-auto" src={item.img} />
         </div>
-        <div className="w-full py-4 px-6  flex flex-col justify-center bg-transparent">
+        <div className="w-full py-4 px-6  flex flex-col justify-center bg-transparent text-center md:text-left">
           <h3 className="text-xl leading-tight truncate mb-2 font-extrabold text-blue-300">
             {item.title}
           </h3>
@@ -149,8 +149,8 @@ export default function Home() {
           </div>
           {/* Who are we section */}
           <div className="h-66 flex md:flex-row flex-col justify-center">
-            <div className="w-1/2 flex flex-col justify-center px-10">
-              <h2 className="text-3xl rainbow-text">Who are we?</h2>
+            <div className="md:w-1/2 flex flex-col justify-center px-5 md:px-10">
+              <h2 className="text-3xl rainbow-text text-center md:text-left">Who are we?</h2>
               <p>
                 We are a team of Information and Network Security enthusiasts
                 who aim to spread the knowledge to other students with an
@@ -162,14 +162,14 @@ export default function Home() {
                 Facebook account, we are afraid we can't assist you.
               </p>
             </div>
-            <div className="w-1/2 flex flex-col justify-center text-center">
-              <p className="emphasis-heading lg:text-6xl text-3xl rainbow-tag">
+            <div className="flex flex-col justify-center text-center w-full md:w-1/2 pt-10 md:pt-0">
+              <p className="emphasis-heading lg:text-6xl text-3xl rainbow-tag text-center mx-auto w-full">
                 #wearemist
               </p>
             </div>
           </div>
           {/* Quote section */}
-          <div className="py-10 lg:w-3/4 mx-auto">
+          <div className="md:py-10 lg:w-3/4 mx-auto px-5">
             <blockquote className="text-center text-3xl font-black emphasis-heading text-image-beach">
               "If you put a key under the mat for the cops, a burglar can find
               it, too. Criminals are using every technology tool at their
@@ -181,23 +181,23 @@ export default function Home() {
             </p>
           </div>
           {/* What we do section */}
-          <div className="px-10 min-h-screen pt-20">
+          <div className="px-5 md:px-10 min-h-screen pt-20">
             <h2 className="text-3xl rainbow-text text-center">
               What do we do?
             </h2>
-            <p className="text-center lg:w-3/4 mx-auto">
+            <p className="text-center w-full lg:w-3/4 mx-auto">
               We are primarily focused on cybersecurity, but we also sail
               uncharted waters from time to time. We make awesome websites,
               organize awesome events, and even host awesome game nights within
               the club. In all, we are an awesome club of an awesome university.
             </p>
-            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="py-5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {whatwedocards}
             </div>
           </div>
           {/* Quote section */}
-          <div className="py-10 lg:w-3/4 mx-auto">
-            <blockquote className="text-center text-3xl font-black emphasis-heading  text-image-beach">
+          <div className="md:py-10 lg:w-3/4 mx-auto px-5">
+            <blockquote className="text-center text-3xl font-black emphasis-heading text-image-beach">
               "Arguing that you don’t care about the right to privacy because
               you have nothing to hide is no different than saying you don’t
               care about free speech because you have nothing to say."
@@ -207,7 +207,7 @@ export default function Home() {
             </p>
           </div>
           {/* Events section */}
-          <div className="px-10 min-h-screen pt-20 pb-20">
+          <div className="px-5 md:px-10 min-h-screen pt-20 pb-20">
             <h2 className="text-3xl rainbow-text text-center">
               Awesome Activities
             </h2>
@@ -218,7 +218,7 @@ export default function Home() {
               what makes us so different from other clubs. We believe in
               Awesomeness.
             </p>
-            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
               {eventCards}
             </div>
           </div>

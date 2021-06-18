@@ -81,7 +81,7 @@ const News = ({ news, categories, bgHolder }) => {
       {/* Recent News */}
       <div className="mx-0 md:mx-10 py-20 recent-news text-center">
         <h3 className="emphasis-heading text-4xl pb-5">Recent News</h3>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-2 px-10 recent-news text-center h-100">
+        <div className="px-0 grid grid-cols-1 md:grid-cols-5 gap-2 md:px-10 recent-news text-center h-100">
           <div className="row-span-1">
             <NewsLite
               number="1"
@@ -132,7 +132,7 @@ const News = ({ news, categories, bgHolder }) => {
       {/* More Stories */}
       <div className="mx-0 md:mx-10 py-20 recent-news text-center">
         <h3 className="emphasis-heading text-4xl pb-5">More Stories</h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-6 gap-2 px-10 recent-news text-center h-100">
+        <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-6 gap-2 px-5 md:px-10 recent-news text-center h-100">
           {news.data.slice(10, 18).map((item) => {
             return (
               <div key={item._id} className="row-span-1">
@@ -163,7 +163,7 @@ const News = ({ news, categories, bgHolder }) => {
         <p className="w-100 px-10 md:w-3/4 pb-5 mx-auto">
           Find news based on categories that interest you
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 px-10 categories-grid text-center h-100">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 px-3 md:px-10 categories-grid text-center h-100">
           {categories.data.map((item, count) => {
             return (
               <div
@@ -239,7 +239,7 @@ const News = ({ news, categories, bgHolder }) => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 text-center get-writers m-0 py-20"></div>
+        <div className="hidden md:inline col-span-1 text-center get-writers m-0 py-20"></div>
       </div>
       <style jsx>{`
         .main-news-heading {
