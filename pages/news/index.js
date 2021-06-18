@@ -1,10 +1,21 @@
 import Head from "next/head";
+import Link from "next/link";
 import { SITE_DOMAIN } from "../../utils/constants";
 import NewsTile from "../../components/NewsTile";
 import NewsLite from "../../components/NewsLite";
 import NewsCard from "../../components/NewsCard";
+import { useState } from "react";
 
 const News = ({ news, categories, bgHolder }) => {
+  const [userEmail, setUserEmail] = useState();
+
+  const userSubscribeInput = (e) => {
+    setUserEmail(e.target.value);
+  };
+  const subscribeUser = (e) => {
+    e.preventDefault();
+    alert(userEmail);
+  };
   return (
     <div className="text-center min-h-screen py-20 container mx-auto">
       <Head>
@@ -12,7 +23,7 @@ const News = ({ news, categories, bgHolder }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* Logo section */}
-      <div className="text-left w-100 pl-10">
+      <div className="text-left w-100 pl-0 md:pl-10">
         <h1 className=" text-4xl emphasis-heading pl-5">CyberManipal.</h1>
         <p className=" text-sm font-thin emphasis-heading text-gray-600 pl-6">
           Tech news from MIST
@@ -74,6 +85,7 @@ const News = ({ news, categories, bgHolder }) => {
           <div className="row-span-1">
             <NewsLite
               number="1"
+              id={news.data[5]._id}
               title={news.data[5].newsHeading}
               tag={news.data[5].filtertag}
               published={news.data[5].date}
@@ -82,6 +94,7 @@ const News = ({ news, categories, bgHolder }) => {
           <div className="row-span-1">
             <NewsLite
               number="2"
+              id={news.data[6]._id}
               title={news.data[6].newsHeading}
               tag={news.data[6].filtertag}
               published={news.data[6].date}
@@ -90,6 +103,7 @@ const News = ({ news, categories, bgHolder }) => {
           <div className="row-span-1">
             <NewsLite
               number="3"
+              id={news.data[7]._id}
               title={news.data[7].newsHeading}
               tag={news.data[7].filtertag}
               published={news.data[7].date}
@@ -98,6 +112,7 @@ const News = ({ news, categories, bgHolder }) => {
           <div className="row-span-1">
             <NewsLite
               number="4"
+              id={news.data[8]._id}
               title={news.data[8].newsHeading}
               tag={news.data[8].filtertag}
               published={news.data[8].date}
@@ -106,6 +121,7 @@ const News = ({ news, categories, bgHolder }) => {
           <div className="row-span-1">
             <NewsLite
               number="5"
+              id={news.data[9]._id}
               title={news.data[9].newsHeading}
               tag={news.data[9].filtertag}
               published={news.data[9].date}
@@ -119,8 +135,9 @@ const News = ({ news, categories, bgHolder }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-6 gap-2 px-10 recent-news text-center h-100">
           {news.data.slice(10, 18).map((item) => {
             return (
-              <div className="row-span-1">
+              <div key={item._id} className="row-span-1">
                 <NewsCard
+                  id={item._id}
                   photo={item.highlightPhoto}
                   title={item.newsHeading}
                   tag={item.filtertag}
@@ -131,14 +148,18 @@ const News = ({ news, categories, bgHolder }) => {
           })}
         </div>
         <div className="mx-auto">
-          <button class="border-gray-300 border-2 hover:bg-gray-300 text-gray-300 hover:text-black font-bold py-2 px-4 rounded-full text-center">
-            View more
-          </button>
+          <Link href="/news/latest/1">
+            <a>
+              <button className="border-gray-300 border-2 hover:bg-gray-300 text-gray-300 hover:text-black font-bold py-2 px-4 rounded-full text-center">
+                View more
+              </button>
+            </a>
+          </Link>
         </div>
       </div>
       {/* Categories */}
-      <div className="py-20 categories text-center">
-        <h3 className="emphasis-heading text-4xl ">Browse by category</h3>
+      <div className="py-20 categories-section text-center">
+        <h3 className="emphasis-heading text-4xl">Browse by category</h3>
         <p className="w-100 px-10 md:w-3/4 pb-5 mx-auto">
           Find news based on categories that interest you
         </p>
@@ -146,27 +167,80 @@ const News = ({ news, categories, bgHolder }) => {
           {categories.data.map((item, count) => {
             return (
               <div
-                className="row-span-1 h-40 hover:border-4 border-transparent hover:border-gray-200"
+                key={item._id}
+                className="row-span-1 h-40 hover:border-4 border-transparent hover:border-gray-200 hover:cursor-pointer duration-300"
                 style={{
                   backgroundImage: `url("${bgHolder[count]}")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
               >
-                <div className="overlay flex flex-col justify-center">
-                  <p className="text-2xl emphasis-heading">{item}</p>
-                </div>
+                <Link
+                  href={"/news/topic/" + item.split(" ").join("").toLowerCase()}
+                >
+                  <a>
+                    <div className="overlay flex flex-col justify-center">
+                      <p className="text-2xl emphasis-heading">{item}</p>
+                    </div>
+                  </a>
+                </Link>
               </div>
             );
           })}
         </div>
       </div>
+
       {/* Subscibe Section */}
-      <div className="">
-        
+      <div className="text-center subscribe-section my-20">
+        <div className="overlay py-20">
+          <h3 className="emphasis-heading text-4xl">
+            Become a MISTy subscriber
+          </h3>
+          <p className="w-100 px-10 md:w-3/4 pb-5 mx-auto">
+            Let us send you a weekly digest about all that's going on in
+            CyberManipal.
+          </p>
+          <div className="w-full text-center">
+            <form onSubmit={subscribeUser}>
+              <div className="max-w-sm mx-auto p-1 pr-0 flex items-center">
+                <input
+                  type="email"
+                  placeholder="yourmail@example.com"
+                  className="flex-1 appearance-none rounded shadow p-3 text-grey-dark mr-2 focus:outline-none text-gray-600"
+                  onChange={userSubscribeInput}
+                />
+                <button
+                  type="submit"
+                  className="bg-blue-600 text-white text-base font-semibold rounded-md shadow-md hover:bg-indigo-600 p-3"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
       {/* Join our team section */}
-      <div className=""></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 text-gray-50">
+        <div className="col-span-1 px-10 md:px-0">
+          <div className="text-left min-w-min mx-auto">
+            <h3 className="emphasis-heading text-4xl w-100 md:w-3/4 pb-5 mx-auto">
+              Write for us
+            </h3>
+            <p className="w-100 md:w-3/4 pb-5 mx-auto min-w-min">
+              If you like technology, and especially cybersecurity like us, we
+              think you'd love it at CyberManipal. We like to discuss and write
+              about the cyber world and we always love when new writers join us.
+            </p>
+            <div className="md:w-3/4 mx-auto">
+              <button className="bg-blue-600 text-white text-base font-semibold rounded-md shadow-md hover:bg-indigo-600 p-3">
+                Join CyberManipal
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-1 text-center get-writers m-0 py-20"></div>
+      </div>
       <style jsx>{`
         .main-news-heading {
           height: 700px;
@@ -176,8 +250,18 @@ const News = ({ news, categories, bgHolder }) => {
           height: 100%;
           width: 100%;
         }
-        .categories {
+        .categories-section {
           background-image: linear-gradient(#484150, #212121);
+        }
+        .subscribe-section {
+          background-image: url("/images/subscribeImage.jpg");
+          background-attachment: fixed;
+          background-size: cover;
+        }
+        .get-writers {
+          background-image: url("/images/categories.png");
+          background-size: cover;
+          background-repeat: no-repeat;
         }
       `}</style>
     </div>

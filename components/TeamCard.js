@@ -6,7 +6,7 @@ const TeamCard = (props) => {
     socialInfo.push(item);
   }
   const socialData = socialInfo.map((key) => {
-    return MakeCard(key, props.social[key]);
+    return MakeCard(key, props.social[key], "text-xl", "mx-5");
   });
   const imageSize =
     props.category === "board" || props.category === "mancomm"
@@ -26,7 +26,7 @@ const TeamCard = (props) => {
             : null}
         </p>
       </div>
-      <div className="flex flex-row justify-evenly">{socialData}</div>
+      <div className="text-center">{socialData}</div>
     </div>
   );
 };

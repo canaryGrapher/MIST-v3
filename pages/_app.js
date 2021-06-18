@@ -2,8 +2,6 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/global.css";
-import { GlobalStateProvider } from "../src/context";
-
 function App({ Component, pageProps }) {
   return (
     <div className="text-gray-50">
@@ -16,11 +14,9 @@ function App({ Component, pageProps }) {
           referrerPolicy="no-referrer"
         />
       </Head>
-      <GlobalStateProvider>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-      </GlobalStateProvider>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
     </div>
   );
 }

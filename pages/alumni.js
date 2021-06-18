@@ -33,16 +33,13 @@ const Network = ({ alumni, batches }) => {
         <title>Alumni | Manipal Information Security Team</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-5xl emphasis-heading pt-10 font-extrabold">The MIST Network</h1>
+      <h1 className="text-5xl emphasis-heading pt-10 font-extrabold">
+        The MIST Network
+      </h1>
       <p className="w-full px-5 md:w-1/2 mx-auto">
         Meet all the boards MIST ever had.
       </p>
       {alumniData}
-      <style jsx>{`
-        .container {
-          background-color: #121212;
-        }
-      `}</style>
     </div>
   );
 };

@@ -7,14 +7,18 @@ export default async function handler(req, res) {
   const { method } = req;
   if (method === "GET") {
     try {
-      const router = useRouter();
-      const writer = await Writer.find({ username: router.query });
-      res.status(200).json({ success: true, data: writer });
+      if (req.query.username === "all") {
+        const writers = await Writer.find().distinct("username");
+        res.status(200).json({ success: true, data: writers });
+      } else {
+        const writer = await Writer.find({ username: req.query.username });
+        if (writer) res.status(200).json({ success: true, data: writer });
+        else res.status(500).json({ success: false, data: "No user found" });
+      }
     } catch (error) {
       res.status(500).json({ success: false });
     }
-  }
-  if (method === "POST") {
+  } else if (method === "POST") {
     try {
       let username = "";
       let foundUsername = false;

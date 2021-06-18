@@ -96,6 +96,7 @@ export default function Home() {
   const whatwedocards = whatwedo.map((item) => {
     return (
       <div
+        key={item.id}
         className="card max-w-sm rounded overflow-hidden shadow-lg"
         style={{ backgroundColor: item.color }}
       >
@@ -109,7 +110,10 @@ export default function Home() {
 
   const eventCards = events.map((item) => {
     return (
-      <div className="flex flex-col md:flex-row overflow-hidden rounded-lg shadow-xl mt-4 w-100 mx-2">
+      <div
+        key={item.id}
+        className="flex flex-col md:flex-row overflow-hidden rounded-lg shadow-xl mt-4 w-100 mx-2"
+      >
         <div className="h-52 w-auto md:w-1/2">
           <img className="h-full" src={item.img} />
         </div>
@@ -125,7 +129,7 @@ export default function Home() {
 
   return (
     <Fragment>
-      <div className="container pb-20 pt-5 w-screen mx-auto">
+      <div className="container pb-15 pt-5 flex flex-col justify-center min-h-100 w-screen mx-auto">
         <Head>
           <title>Manipal Information Security Team</title>
           <link rel="icon" href="/favicon.ico" />
@@ -220,15 +224,6 @@ export default function Home() {
           </div>
         </main>
         <style jsx>{`
-          .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #121212;
-          }
-
           main {
           }
 

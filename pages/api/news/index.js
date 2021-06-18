@@ -9,17 +9,30 @@ export default async function handler(req, res) {
   if (method === "GET") {
     try {
       const { page } = req.query;
-      console.log(!isNaN(page) && !isNaN(parseFloat(page)) && (typeof page === "string"))
+      console.log(
+        !isNaN(page) && !isNaN(parseFloat(page)) && typeof page === "string"
+      );
 
       // If homepage is provided
       if (page === "home") {
         const news = await News.find({}).sort("-date").limit(18);
         res.status(200).json({ success: true, data: news });
       }
+      // For setting up static paths
+      else if (page === "paths") {
+        const paths = await News.find({}, "_id");
+        res.status(200).json({ success: true, data: paths });
+      }
       // If page number is provided
-      else if(!isNaN(page) && !isNaN(parseFloat(page)) && typeof page == "string") {
-        const perPage = 12;
-        const output = await News.find().limit(perPage).skip(perPage * page).sort("-date");
+      else if (
+        !isNaN(page) &&
+        !isNaN(parseFloat(page)) &&
+        typeof page == "string"
+      ) {
+        const output = await News.find({})
+          .sort("-date")
+          .limit(12)
+          .skip(12 * page);
         res.status(200).json({ success: true, data: output });
       }
       // If no valid query is provided
@@ -27,7 +40,7 @@ export default async function handler(req, res) {
         res.status(500).json({ success: false });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).json({ success: false });
     }
   } else if (method === "POST") {
