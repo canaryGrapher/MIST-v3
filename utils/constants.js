@@ -1,1 +1,1 @@
-export const SITE_DOMAIN = "http://localhost:3000";
+export const SITE_DOMAIN = process.env.SERVER_URL;
