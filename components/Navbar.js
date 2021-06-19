@@ -1,84 +1,133 @@
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { Fragment } from "react";
+import { Disclosure, Transition } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Navbar = (props) => {
-  const home =
-    props.pagename === "home"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  const team =
-    props.pagename === "team"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  const news =
-    props.pagename === "news"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  const articles =
-    props.pagename === "articles"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  const events =
-    props.pagename === "events"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  const alumni =
-    props.pagename === "alumni"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  const showcase =
-    props.pagename === "showcase"
-      ? "text-green-300 hover:text-white"
-      : "text-gray-300 hover:text-white";
-  return (
-    <div className="fixed w-screen h-15 text-lg navbar z-50">
-      <div className="absolute left-5 top-2">
-        <Image
-          src="/images/logoLight.png"
-          height="25"
-          width="60"
-          alt="MIST logo"
-          className="logo-icon"
-        />
-      </div>
-      <div className="flex flex-row justify-center">
-        <Link href="/">
-          <a className={home}>Home</a>
-        </Link>
-        <Link href="/team">
-          <a className={team}>Team</a>
-        </Link>
-        <Link href="/alumni">
-          <a className={alumni}>Alumni</a>
-        </Link>
-        <Link href="/news">
-          <a className={news}>News</a>
-        </Link>
-        <Link href="https://blogs.wearemist.in" passHref={true}>
-          <a className={articles}>Blogs</a>
-        </Link>
-        <Link href="https://events.wearemist.in/" passHref={true}>
-          <a className={events}>Events</a>
-        </Link>
-        <Link href="/showcase">
-          <a className={showcase}>Showcase</a>
-        </Link>
-      </div>
-      <style jsx>{`
-        .navbar {
-          background-color: #121212;
-        }
-        a {
-          padding: 10px 20px;
-          cursor: pointer;
-        }
+const navigation = [
+  { name: "Home", match: "", href: "/" },
+  { name: "Team", match: "team", href: "/team" },
+  { name: "News", match: "news", href: "/news" },
+  { name: "Alumni", match: "alumni", href: "/alumni" },
+  {
+    name: "Blogs",
+    match: "na",
+    href: "https://blogs.wearemist.in/",
+  },
+  {
+    name: "Events",
+    match: "na",
+    href: "https://events.wearemist.in/",
+  },
+  { name: "Showcase", match: "showcase", href: "/showcase" },
+];
 
-        a:hover {
-          color: #fafafa;
-          transform: scale(1.2);
-        }
-      `}</style>
-    </div>
+const Navbar = () => {
+  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(router.pathname.split("/")[1]);
+  useEffect(() => {
+    // Update the document title using the browser API
+    const pageName = router.pathname.split("/")[1];
+    setCurrentPage(pageName);
+  });
+  return (
+    <Fragment>
+      <Disclosure
+        as="nav"
+        className="navbar fixed w-full"
+        style={{ backgroundColor: "#121212", zIndex: "1000" }}
+      >
+        {({ open }) => (
+          <>
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+              <div className="relative flex items-center justify-between h-16">
+                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                  {/* Mobile menu button*/}
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <i className="fas fa-times"></i>
+                    ) : (
+                      <i className="fas fa-bars"></i>
+                    )}
+                  </Disclosure.Button>
+                </div>
+                <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
+                  <div className="w-screen md:w-20 text-center flex flex-col items-center justify-center">
+                    <Image
+                      src="/images/logoLight.png"
+                      height="25"
+                      width="60"
+                      alt="MIST logo"
+                      className="block lg:hidden mx-auto"
+                    />
+                  </div>
+                  <div className="hidden sm:block sm:ml-6">
+                    <div className="flex space-x-4">
+                      {navigation.map((item) => {
+                        return (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            aria-current={item.current ? "page" : undefined}
+                          >
+                            <a
+                              className={
+                                currentPage === item.match
+                                  ? "text-green-300 hover:text-white"
+                                  : "text-gray-300 hover:text-white"
+                              }
+                            >
+                              {item.name}
+                            </a>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Transition
+              show={open}
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Disclosure.Panel className="md:hidden">
+                <div className="px-2 pt-2 pb-3 space-y-1">
+                  {navigation.map((item) => (
+                    <Link key={item.name} href={item.href}>
+                      <a className={currentPage === item.match ? "text-green-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"}
+                        aria-current="page"
+                      >
+                        {item.name}
+                      </a>
+                    </Link>
+                  ))}
+                </div>
+                <style jsx>{`
+                  a {
+                    padding: 10px 20px;
+                    cursor: pointer;
+                  }
+
+                  a:hover {
+                    color: #fafafa;
+                    transform: scale(1.02);
+                  }
+                `}</style>
+              </Disclosure.Panel>
+            </Transition>
+          </>
+        )}
+      </Disclosure>
+    </Fragment>
   );
 };
 

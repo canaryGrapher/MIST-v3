@@ -13,16 +13,16 @@ const Latest = ({ author, news }) => {
     return MakeCard(key, author.social[key], "text-3xl", "mx-2");
   });
   return (
-    <div className="min-h-screen justify-center text-gray-50 py-20 text-center">
+    <div className="min-h-screen justify-center text-gray-50 py-20 text-center px-5">
       <p className="text-xl emphasis-heading">Writer Profile</p>
-      <div className="md:w-3/4 mx-auto text-center grid grid-cols-10 gap-10">
+      <div className="md:w-3/4 mx-auto text-center grid-col-1 grid md:grid-cols-10 gap-10 py-5">
         <img
-          className="rounded-full col-span-3 my-auto"
+          className="rounded-full col-span-1 md:col-span-3 my-auto mx-auto"
           width="350px"
           height="350px"
           src={author.avatar}
         />
-        <div className="col-span-7 text-left">
+        <div className="col-span-1 md:col-span-7 text-left">
           <p className="pt-10 text-green-300">{author.position}</p>
           <h1 className="text-5xl emphasis-heading">{author.name}</h1>
           <p className="pt-5 text-2xl font-black text-green-300 pb-2">
