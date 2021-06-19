@@ -45,37 +45,41 @@ export default async function handler(req, res) {
     }
   } else if (method === "POST") {
     try {
-      const {
-        newsHeading,
-        highlightPhoto,
-        description,
-        date,
-        credit,
-        source,
-        author,
-        filtertag,
-        link,
-      } = req.body;
+      if (headers.auth_api_token === process.env.APP_API) {
+        const {
+          newsHeading,
+          highlightPhoto,
+          description,
+          date,
+          credit,
+          source,
+          author,
+          filtertag,
+          link,
+        } = req.body;
 
-      const authorExists = await Writer.findOne({ username: author });
-      if (authorExists) {
-        res.status(409).json({ msg: "Username exists" });
+        const authorExists = await Writer.findOne({ username: author });
+        if (authorExists) {
+          res.status(409).json({ msg: "Username exists" });
+        } else {
+          const newNewsObject = {
+            newsHeading: newsHeading,
+            highlightPhoto: highlightPhoto,
+            description: description,
+            date: date,
+            credit: credit,
+            source: source,
+            link: link,
+            author: author,
+            filtertag: filtertag,
+          };
+
+          const addNews = new News(newNewsObject);
+          await addNews.save();
+          res.status(201).json(addNews);
+        }
       } else {
-        const newNewsObject = {
-          newsHeading: newsHeading,
-          highlightPhoto: highlightPhoto,
-          description: description,
-          date: date,
-          credit: credit,
-          source: source,
-          link: link,
-          author: author,
-          filtertag: filtertag,
-        };
-
-        const addNews = new News(newNewsObject);
-        await addNews.save();
-        res.status(201).json(addNews);
+        res.status(401).json({ success: "false", msg: "Authentication error" });
       }
     } catch (error) {
       console.log(error);
