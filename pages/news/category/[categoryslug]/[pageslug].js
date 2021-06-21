@@ -99,7 +99,6 @@ export const getStaticPaths = async () => {
       paths.push(item);
     }
   }
-  console.log("this is the path", paths);
   return {
     paths,
     fallback: false,

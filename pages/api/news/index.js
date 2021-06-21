@@ -36,7 +36,6 @@ export default async function handler(req, res) {
         res.status(500).json({ success: false });
       }
     } catch (error) {
-      console.log(error);
       res.status(500).json({ success: false });
     }
   } else if (method === "POST") {
@@ -78,7 +77,6 @@ export default async function handler(req, res) {
         res.status(401).json({ success: "false", msg: "Authentication error" });
       }
     } catch (error) {
-      console.log(error);
       res.status(500).json({ success: false });
     }
   } else {
