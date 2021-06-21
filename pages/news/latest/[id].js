@@ -2,7 +2,6 @@ import Head from "next/head";
 import { SITE_DOMAIN } from "../../../utils/constants";
 import NewsTile from "../../../components/NewsTile";
 import NewsHorizontal from "../../../components/NewsHorizontal";
-import Link from "next/link";
 import PaginationBar from "../../../components/PaginationBar";
 
 const Latest = ({ news, numberOfPages, currentPage }) => {
@@ -63,7 +62,7 @@ const Latest = ({ news, numberOfPages, currentPage }) => {
           </div>
           {/* Pagination Bar */}
           <div className="mt-20">
-            <PaginationBar pages={numberOfPages} currentPage={currentPage} />
+            <PaginationBar pages={numberOfPages} currentPage={currentPage} url="/news/latest" />
           </div>
         </div>
       </div>

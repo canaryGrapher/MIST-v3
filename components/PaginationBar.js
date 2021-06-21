@@ -13,7 +13,7 @@ const PaginationBar = (props) => {
     <div className="mx-auto">
       <ul className="pagination max-w-min mx-auto text-gray-800 flex flex-row justify-evenly rounded-full px-4 py-2">
         {props.currentPage == pageCount[0] ? null : (
-          <Link href={`/news/latest/${props.currentPage - 1}`}>
+          <Link href={`${props.url}/${props.currentPage - 1}`}>
             <a>
               <li
                 className={
@@ -30,31 +30,19 @@ const PaginationBar = (props) => {
 
         {pageCount.map((item) => {
           if (props.currentPage == item) {
-            return (
-              <li
-                className={selectedTab}
-                // style={{ width: "35px", height: "35px" }}
-              >
-                {item}
-              </li>
-            );
+            return <li className={selectedTab}>{item}</li>;
           } else {
             return (
-              <Link href={`/news/latest/${item}`}>
+              <Link href={`${props.url}/${item}`}>
                 <a>
-                  <li
-                    className={notSelectedTab}
-                    //   style={{ width: "35px", height: "35px" }}
-                  >
-                    {item}
-                  </li>
+                  <li className={notSelectedTab}>{item}</li>
                 </a>
               </Link>
             );
           }
         })}
         {props.currentPage == pageCount[pageCount.length - 1] ? null : (
-          <Link href={`/news/latest/${Number(props.currentPage) + 1}`}>
+          <Link href={`${props.url}/${Number(props.currentPage) + 1}`}>
             <a>
               <li className="mx-5 min-w-max rounded-full flex flex-col justify-center text-blue-500 cursor-pointer hover:text-gray-50">
                 Next{" >"}

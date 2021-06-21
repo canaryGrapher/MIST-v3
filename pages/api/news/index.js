@@ -5,14 +5,10 @@ import Writer from "../../../models/Writer";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { method } = req;
+  const { method, headers } = req;
   if (method === "GET") {
     try {
       const { page } = req.query;
-      console.log(
-        !isNaN(page) && !isNaN(parseFloat(page)) && typeof page === "string"
-      );
-
       // If homepage is provided
       if (page === "home") {
         const news = await News.find({}).sort("-date").limit(18);
@@ -32,7 +28,7 @@ export default async function handler(req, res) {
         const output = await News.find({})
           .sort("-date")
           .limit(12)
-          .skip(12 * page);
+          .skip(12 * parseInt(page));
         res.status(200).json({ success: true, data: output });
       }
       // If no valid query is provided

@@ -176,7 +176,7 @@ const News = ({ news, categories, bgHolder }) => {
                 }}
               >
                 <Link
-                  href={"/news/topic/" + item.split(" ").join("").toLowerCase()}
+                  href={"/news/category/" + item.split(" ").join("").toLowerCase() + "/1"}
                 >
                   <a>
                     <div className="overlay flex flex-col justify-center">

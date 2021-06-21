@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const NewsHorizontal = (props) => {
   const linkToPage = `/news/article/${props.id}`;
-  const linkToCategory = `/news/topic/${props.tag.split(" ").join("").toLowerCase()}`;
+  const linkToCategory = `/news/category/${props.tag.split(" ").join("").toLowerCase()}/1`;
   return (
     <Link href={linkToPage}>
       <a className="grid grid-cols-1 md:grid-cols-12 gap-10 cursor-pointer justify-items-start my-10">
@@ -25,8 +25,14 @@ const NewsHorizontal = (props) => {
             {props.title}
           </p>
           <DateDiff date={props.published} />
-          <p>
+          <p className="hidden md:block">
             {props.information.split(" ").slice(0, 50).join(" ") + "...  "}
+            <span className="text-blue-500 hover:text-gray-200 clear-both">
+              Read more
+            </span>
+          </p>
+          <p className="block md:hidden">
+            {props.information.split(" ").slice(0, 15).join(" ") + "...  "}
             <span className="text-blue-500 hover:text-gray-200 clear-both">
               Read more
             </span>

@@ -26,7 +26,7 @@ export const DateDiff = (date) => {
         }
         //   Check if the number of years is greater than 1
         else {
-          return <p className="text-gray-500 font-bold">{Math.floor(numberOfDays)} years ago</p>;
+          return <p className="text-gray-500 font-bold">{Math.floor(currentTime.getFullYear() - publishedDate.getFullYear())} years ago</p>;
         }
       }
     }

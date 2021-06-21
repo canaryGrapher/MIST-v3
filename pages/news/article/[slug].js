@@ -5,10 +5,10 @@ const month= ["January","February","March","April","May","June","July",
             "August","September","October","November","December"];
 
 const Latest = ({ newsItem, author }) => {
-  const linkToCategory = `/news/topic/${newsItem.filtertag
+  const linkToCategory = `/news/category/${newsItem.filtertag
     .split(" ")
     .join("")
-    .toLowerCase()}`;
+    .toLowerCase()}/1`;
   const date = new Date(newsItem.date);
   return (
     <div className="min-h-screen flex flex-col justify-center text-gray-50 py-20">
@@ -25,8 +25,8 @@ const Latest = ({ newsItem, author }) => {
         <img className="pt-10" src={newsItem.highlightPhoto} />
         <Link
           href={
-            "/news/topic/" +
-            newsItem.filtertag.split(" ").join("").toLowerCase()
+            "/news/category/" +
+            newsItem.filtertag.split(" ").join("").toLowerCase() + "/1"
           }
         >
           <a className="cursor-pointer">

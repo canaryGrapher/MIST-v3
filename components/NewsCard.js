@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const NewsCard = (props) => {
   const linkToPage = `/news/article/${props.id}`;
-  const linkToCategory = `/news/topic/${props.tag.split(" ").join("").toLowerCase()}`;
+  const linkToCategory = `/news/category/${props.tag.split(" ").join("").toLowerCase()}/1`;
   return (
     <Link href={linkToPage}>
       <a className="max-w-sm rounded-lg overflow-hidden my-2 py-5 mx-auto hover:shadow-lg cursor-pointer">

@@ -19,8 +19,7 @@ const navigation = [
     name: "Events",
     match: "na",
     href: "https://events.wearemist.in/",
-  },
-  { name: "Showcase", match: "showcase", href: "/showcase" },
+  }
 ];
 
 const Navbar = () => {
@@ -100,7 +99,7 @@ const Navbar = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Disclosure.Panel className="md:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1">
+                <div className="px-2 pt-2 pb-3">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
                       <a className={currentPage === item.match ? "text-green-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"}

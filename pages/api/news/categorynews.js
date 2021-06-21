@@ -4,31 +4,43 @@ import News from "../../../models/News";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { method } = req;
+  const { method, query } = req;
   if (method === "GET") {
     try {
-      const categories = await News.find().distinct("filtertag");
-      let i = 0;
-      let matchingCategory;
-      let match = false;
-      while (!match) {
-        if (
-          req.query.category === categories[i].split(" ").join("").toLowerCase()
-        ) {
-          match = true;
-          matchingCategory = categories[i];
+      if (
+        !isNaN(query.page) &&
+        !isNaN(parseFloat(query.page)) &&
+        typeof query.page == "string"
+      ) {
+        const categories = await News.find().distinct("filtertag");
+        let i = 0;
+        let matchingCategory;
+        let match = false;
+        while (!match) {
+          if (
+            query.category === categories[i].split(" ").join("").toLowerCase()
+          ) {
+            match = true;
+            matchingCategory = categories[i];
+          }
+          i++;
         }
-        i++;
+        if (match) {
+          const categoryNews = await News.find({ filtertag: matchingCategory })
+            .sort("-date")
+            .limit(12)
+            .skip(12 * parseInt(query.page));
+          res.status(200).json({
+            success: true,
+            category: matchingCategory,
+            data: categoryNews,
+          });
+        } else {
+          res.status(500).json({ success: false });
+        }
+      } else {
+        res.status(500).json({ success: false });
       }
-      //   categories.forEach(element => {
-      //       if(req.query.category === element.split(" ").join("").toLowerCase()) {
-      //           console.log("Yureka")
-      //       } else {
-      //           console.log("Nahi mila")
-      //       }
-      //   });
-
-      res.status(200).json({ success: true, category: matchingCategory, data: categories });
     } catch (error) {
       res.status(500).json({ success: false });
     }

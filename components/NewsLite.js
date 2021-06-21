@@ -3,7 +3,7 @@ import { DateDiff } from "../functions/DateDiff";
 
 const NewsLite = (props) => {
   const linkToPage = `/news/article/${props.id}`;
-  const linkToCategory = `/news/topic/${props.tag.split(" ").join("").toLowerCase()}`;
+  const linkToCategory = `/news/category/${props.tag.split(" ").join("").toLowerCase()}/1`;
   return (
     <Link href={linkToPage}>
       <a className="flex flex-row cursor-pointer">

@@ -4,7 +4,7 @@ import Writer from "../../../models/Writer";
 
 export default async function handler(req, res) {
   await dbConnect();
-  const { method } = req;
+  const { method, headers } = req;
   if (method === "GET") {
     try {
       if (req.query.username === "all") {

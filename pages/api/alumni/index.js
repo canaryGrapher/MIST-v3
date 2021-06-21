@@ -4,7 +4,7 @@ import Alumni from "../../../models/Alumni";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { method } = req;
+  const { method, headers } = req;
   if (method === "GET") {
     try {
       const alumni = await Alumni.find({});

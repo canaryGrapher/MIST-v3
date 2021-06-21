@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const NewsTile = (props) => {
   const linkToPage = `/news/article/${props.id}`;
-  const linkToCategory = `/news/topic/${props.tag
+  const linkToCategory = `/news/category/${props.tag
     .split(" ")
     .join("")
-    .toLowerCase()}`;
+    .toLowerCase()}/1`;
   return (
     <div
       className="wrapper cursor-pointer"
