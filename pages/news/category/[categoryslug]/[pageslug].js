@@ -26,7 +26,7 @@ const Category = ({ categoryName, news, numberOfPages, currentPage }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 h-96 md:w-3/4 mx-auto mt-5 mb-20 gap-2">
         {news.slice(0, 2).map((newsItem) => {
           return (
-            <div className="col-span-1">
+            <div className="col-span-1" key={newsItem._id}>
               <NewsTile
                 id={newsItem._id}
                 title={newsItem.newsHeading}
@@ -99,7 +99,6 @@ export const getStaticPaths = async () => {
       paths.push(item);
     }
   }
-  console.log("this is the path", paths);
   return {
     paths,
     fallback: false,

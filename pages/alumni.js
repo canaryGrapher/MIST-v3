@@ -5,7 +5,7 @@ import AlumniCard from "../components/AlumniCard";
 const Network = ({ alumni, batches }) => {
   const alumniData = batches.data.map((batch) => {
     return (
-      <div className="py-5">
+      <div className="py-5" key={batch}>
         <h2 className="text-3xl rainbow-text emphasis-heading font-semibold">
           Board of {batch}
         </h2>

@@ -30,10 +30,14 @@ const PaginationBar = (props) => {
 
         {pageCount.map((item) => {
           if (props.currentPage == item) {
-            return <li className={selectedTab}>{item}</li>;
+            return (
+              <li key={item.toString()} className={selectedTab}>
+                {item}
+              </li>
+            );
           } else {
             return (
-              <Link href={`${props.url}/${item}`}>
+              <Link key={item.toString()} href={`${props.url}/${item}`}>
                 <a>
                   <li className={notSelectedTab}>{item}</li>
                 </a>
