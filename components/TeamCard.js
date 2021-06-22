@@ -11,7 +11,7 @@ const TeamCard = (props) => {
   const imageSize =
     props.category === "board" || props.category === "mancomm"
       ? "w-60 h-60 object-center mx-auto rounded-full"
-      : "w-48 h-48 object-center mx-auto rounded-full";
+      : "w-44 h-44 object-center mx-auto rounded-full";
   return (
     <div className="max-w-sm rounded-lg overflow-hidden my-4 py-5 mx-auto hover:shadow-lg">
       <img className={imageSize} src={props.photo} alt={props.name} />

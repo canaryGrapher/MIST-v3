@@ -8,8 +8,8 @@ import Image from "next/image";
 const navigation = [
   { name: "Home", match: "", href: "/" },
   { name: "Team", match: "team", href: "/team" },
-  { name: "News", match: "news", href: "/news" },
   { name: "Alumni", match: "alumni", href: "/alumni" },
+  { name: "News", match: "news", href: "/news" },
   {
     name: "Blogs",
     match: "na",
@@ -19,7 +19,7 @@ const navigation = [
     name: "Events",
     match: "na",
     href: "https://events.wearemist.in/",
-  }
+  },
 ];
 
 const Navbar = () => {
@@ -30,6 +30,11 @@ const Navbar = () => {
     const pageName = router.pathname.split("/")[1];
     setCurrentPage(pageName);
   });
+
+  const closeNavbar = () => {
+    document.getElementById("headlessui-disclosure-button-1").click();
+  };
+
   return (
     <Fragment>
       <Disclosure
@@ -102,7 +107,13 @@ const Navbar = () => {
                 <div className="px-2 pt-2 pb-3">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
-                      <a className={currentPage === item.match ? "text-green-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"}
+                      <a
+                        onClick={closeNavbar}
+                        className={
+                          currentPage === item.match
+                            ? "text-green-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        }
                         aria-current="page"
                       >
                         {item.name}

@@ -97,7 +97,7 @@ export default function Home() {
     return (
       <div
         key={item.id}
-        className="card max-w-sm rounded overflow-hidden shadow-lg"
+        className="card max-w-sm rounded overflow-hidden shadow-lg mx-auto h-55 w-100"
         style={{ backgroundColor: item.color }}
       >
         <div className="px-6 py-4">
@@ -129,7 +129,7 @@ export default function Home() {
 
   return (
     <Fragment>
-      <div className="container pb-15 pt-5 flex flex-col justify-center min-h-100 w-screen mx-auto">
+      <div className="container pb-15 pt-5 flex flex-col justify-center w-screen mx-auto">
         <Head>
           <title>Manipal Information Security Team</title>
           <link rel="icon" href="/favicon.ico" />
@@ -137,78 +137,71 @@ export default function Home() {
         <main>
           {/* Intro section */}
           <div className="text-center flex flex-col justify-center min-h-screen">
-            <p className="lg:text-lg text-base text-gray-400">
-              We are a community of cybersecurity enthusisasts, known as the
-            </p>
             <h1 className="text-center lg:text-9xl text-5xl font-black gradient-text emphasis-heading">
               Manipal Information <br /> Security Team
             </h1>
-            <p className="lg:text-lg text-base text-gray-400">
+            <p className="lg:text-lg text-base text-gray-500 emphasis-heading hidden md:block">
               from the Manipal Institute of Technology, India
             </p>
           </div>
           {/* Who are we section */}
-          <div className="h-66 flex md:flex-row flex-col justify-center">
-            <div className="md:w-1/2 flex flex-col justify-center px-5 md:px-10">
-              <h2 className="text-3xl rainbow-text text-center md:text-left">Who are we?</h2>
-              <p>
-                We are a team of Information and Network Security enthusiasts
-                who aim to spread the knowledge to other students with an
-                interest in this ever-growing field of Computer Science. Our
-                goal is to ensure that students approach this field the right
-                way by providing them with a platform to enhance and practice
-                their skills. Lastly, we'd like to say, we are not hackers. So
-                if you are here with the intention of hacking into your friend's
-                Facebook account, we are afraid we can't assist you.
-              </p>
-            </div>
-            <div className="flex flex-col justify-center text-center w-full md:w-1/2 pt-10 md:pt-0">
-              <p className="emphasis-heading lg:text-6xl text-3xl rainbow-tag text-center mx-auto w-full">
-                #wearemist
-              </p>
-            </div>
+          <div className="text-center md:w-3/4 mx-auto px-5">
+          {/* <p className="emphasis-heading lg:text-6xl text-3xl rainbow-tag text-center mx-auto w-full">
+              #wearemist
+            </p> */}
+            <h2 className="text-5xl pb-5 rainbow-text">Who are we?</h2>
+            <p>
+              We are a team of Information and Network Security enthusiasts who
+              aim to spread the knowledge to other students with an interest in
+              this ever-growing field of Computer Science. Our goal is to ensure
+              that students approach this field the right way by providing them
+              with a platform to enhance and practice their skills. Lastly, we'd
+              like to say, we are not hackers. So if you are here with the
+              intention of hacking into your friend's Facebook account, we are
+              afraid we can't assist you.
+            </p>
           </div>
           {/* Quote section */}
-          <div className="md:py-10 lg:w-3/4 mx-auto px-5">
-            <blockquote className="text-center text-3xl font-black emphasis-heading text-image-beach">
+          <div className="lg:w-3/4 mx-auto px-5 mt-5 py-10">
+            <blockquote className="md:text-2xl text-lg font-black emphasis-heading text-image-beach">
               "If you put a key under the mat for the cops, a burglar can find
               it, too. Criminals are using every technology tool at their
               disposal to hack into people’s accounts. If they know there’s a
               key hidden somewhere, they won’t stop until they find it."
             </blockquote>
-            <p className="text-right text-gray-400 mt-5">
+            <p className="text-center md:text-right text-gray-400 mt-5">
               - Timothy Donald Cook
             </p>
           </div>
           {/* What we do section */}
-          <div className="px-5 md:px-10 min-h-screen pt-20">
-            <h2 className="text-3xl rainbow-text text-center">
+          <div className="px-5 py-10">
+            <h2 className="text-5xl rainbow-text pb-5 text-center">
               What do we do?
             </h2>
-            <p className="text-center w-full lg:w-3/4 mx-auto">
+            <p className="text-center w-full lg:w-3/4 mx-auto pb-10">
               We are primarily focused on cybersecurity, but we also sail
               uncharted waters from time to time. We make awesome websites,
               organize awesome events, and even host awesome game nights within
               the club. In all, we are an awesome club of an awesome university.
             </p>
-            <div className="py-5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {whatwedocards}
             </div>
           </div>
           {/* Quote section */}
-          <div className="md:py-10 lg:w-3/4 mx-auto px-5">
-            <blockquote className="text-center text-3xl font-black emphasis-heading text-image-beach">
+          <div className="lg:w-3/4 mx-auto px-5 py-20">
+            <blockquote className="md:text-2xl text-lg font-black emphasis-heading text-image-beach">
               "Arguing that you don’t care about the right to privacy because
               you have nothing to hide is no different than saying you don’t
               care about free speech because you have nothing to say."
             </blockquote>
-            <p className="text-right text-gray-400 mt-5">
+            <p className="text-center md:text-right text-gray-400 mt-5">
               - Edward Joseph Snowden
             </p>
           </div>
           {/* Events section */}
-          <div className="px-5 md:px-10 min-h-screen pt-20 pb-20">
-            <h2 className="text-3xl rainbow-text text-center">
+          <div className="px-5 pb-20">
+            <h2 className="text-5xl pb-5 rainbow-text text-center">
               Awesome Activities
             </h2>
             <p className="text-center lg:w-3/4 mx-auto">
@@ -224,9 +217,6 @@ export default function Home() {
           </div>
         </main>
         <style jsx>{`
-          main {
-          }
-
           .gradient-text {
             padding: 10px 40px;
             user-select: none;

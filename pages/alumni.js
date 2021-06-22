@@ -1,14 +1,22 @@
 import { SITE_DOMAIN } from "../utils/constants";
 import Head from "next/head";
+import Link from "next/link";
 import AlumniCard from "../components/AlumniCard";
 
 const Network = ({ alumni, batches }) => {
   const alumniData = batches.data.map((batch) => {
     return (
-      <div className="py-5" key={batch}>
-        <h2 className="text-3xl rainbow-text emphasis-heading font-semibold">
-          Board of {batch}
-        </h2>
+      <div className="py-5" key={batch} id={batch}>
+        <div className="text-center">
+          <h2 className="text-3xl rainbow-text emphasis-heading font-semibold">
+            <Link href={"/alumni#" + batch}>
+              <a>
+                <i className="fas fa-link text-sm text-gray-400"></i>
+              </a>
+            </Link>{" "}
+            Board of {batch}
+          </h2>
+        </div>
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 mx-auto">
           {alumni.data.map((item) =>
             item.year === batch ? (
