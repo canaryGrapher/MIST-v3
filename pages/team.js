@@ -9,8 +9,12 @@ const Team = ({ board, mancomm, workcomm }) => {
         <title>Team | Manipal Information Security Team</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-5xl emphasis-heading pt-10 font-extrabold px-1">Meet the Team</h1>
-      <p>Take a look at all the members of the club who make it so awesome</p>
+      <h1 className="text-5xl emphasis-heading pt-10 font-extrabold px-1">
+        Meet the Team
+      </h1>
+      <p className="px-5">
+        Take a look at all the members of the club who make it so awesome
+      </p>
       {/* Rendering Board section */}
       <div className="pt-20">
         <h2 className="text-3xl rainbow-text emphasis-heading font-semibold">
