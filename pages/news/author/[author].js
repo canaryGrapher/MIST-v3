@@ -14,6 +14,60 @@ const Latest = ({ author, news }) => {
   });
   return (
     <div className="min-h-screen justify-center text-gray-50 py-20 text-center px-5">
+      <Head>
+        <title>{author.name} | CyberManipal News</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta
+          name="description"
+          content={author.about.split(".").slice(0, 2).join(". ")}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+        <meta
+          name="keywords"
+          content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization, news, cybermanipal, news"
+        />
+        <meta
+          name="url"
+          content={"https://wearemist.in/news/author/" + author.username}
+        />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
+        <link rel="icon" href="/cybermanipal_favicon.ico" />
+        <link rel="canonical" href="https://wearemist.in/news" />
+        <meta name="reply-to" content="sudo@wearemist.in" />
+        {/* OG meta tags */}
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={author.name + "| CyberManipal News"}
+        />
+        <meta
+          property="og:description"
+          content={author.about.split(".").slice(0, 2).join(". ")}
+        />
+        <meta property="og:image" content={author.avatar} />
+        <meta
+          property="og:url"
+          content={"https://wearemist.in/news/author/" + author.username}
+        />
+        <meta
+          property="og:site_name"
+          content="Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:title"
+          content={author.name + "| CyberManipal News"}
+        />
+        <meta
+          name="twitter:description"
+          content={author.about.split(".").slice(0, 2).join(". ")}
+        />
+        <meta name="twitter:image" content={author.avatar} />
+        <meta name="twitter:site" content="@sudo_mist" />
+        <meta name="twitter:creator" content="@sudo_mist" />
+      </Head>
       <p className="text-xl emphasis-heading">Writer Profile</p>
       <div className="md:w-3/4 mx-auto text-center grid-col-1 grid md:grid-cols-10 gap-10 py-5">
         <img
@@ -33,7 +87,9 @@ const Latest = ({ author, news }) => {
         </div>
       </div>
       <div className="md:w-3/4 pt-20 mx-auto">
-        <h4 className="text-3xl pb-10 font-bold">Articles by {author.name.split(" ")[0]}</h4>
+        <h4 className="text-3xl pb-10 font-bold">
+          Articles by {author.name.split(" ")[0]}
+        </h4>
         <div className="">
           {news.map((perNews) => (
             <NewsHorizontal

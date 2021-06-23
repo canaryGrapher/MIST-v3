@@ -6,8 +6,49 @@ const Team = ({ board, mancomm, workcomm }) => {
   return (
     <div className="text-center container mx-auto text-gray-50 py-20 min-h-screen">
       <Head>
-        <title>Team | Manipal Information Security Team</title>
+        <title>Meet the team | Manipal Information Security Team</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="description" content="Meet the awesome team of Manipal Information Security Team." />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+        <meta
+          name="keywords"
+          content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization, news, cybermanipal, news"
+        />
+        <meta name="url" content="https://wearemist.in/team" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://wearemist.in/team" />
+        <meta name="reply-to" content="sudo@wearemist.in" />
+        {/* OG meta tags */}
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content="Meet the team | Manipal Information Security Team"
+        />
+        <meta
+          property="og:description"
+          content="Meet the awesome team of Manipal Information Security Team."
+        />
+        <meta property="og:image" content="/images/mist_og.png" />
+        <meta property="og:url" content="https://wearemist.in/team" />
+        <meta
+          property="og:site_name"
+          content="Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:title"
+          content="Meet the team | Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:description"
+          content="Meet the awesome team of Manipal Information Security Team."
+        />
+        <meta name="twitter:image" content={"/images/mist_og.png"} />
+        <meta name="twitter:site" content="@sudo_mist" />
+        <meta name="twitter:creator" content="@sudo_mist" />
       </Head>
       <h1 className="text-5xl emphasis-heading pt-10 font-extrabold px-1">
         Meet the Team

@@ -12,15 +12,75 @@ const News = ({ news, categories, bgHolder }) => {
   const userSubscribeInput = (e) => {
     setUserEmail(e.target.value);
   };
-  const subscribeUser = (e) => {
+  const subscribeUser = async (e) => {
     e.preventDefault();
-    alert(userEmail);
+    document.getElementById("inputEmail").value = null;
+    const response = await fetch("/api/newsletter", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+        client_token: "mf8u&YMUYbyurg3@",
+      },
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify({ email: userEmail }),
+    });
+    const responseAwaited = await response.json();
+    alert(responseAwaited.msg);
   };
   return (
     <div className="text-center min-h-screen py-20 container mx-auto">
       <Head>
-        <title>CyberManipal | News by Manipal Information Security Team</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>
+          CyberManipal | News from Manipal Information Security Team
+        </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+        <meta
+          name="keywords"
+          content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization, news, cybermanipal, news"
+        />
+        <meta name="url" content="https://wearemist.in/news" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
+        <link rel="icon" href="/cybermanipal_favicon.ico" />
+        <link rel="canonical" href="https://wearemist.in/news" />
+        <meta name="reply-to" content="sudo@wearemist.in" />
+        {/* OG meta tags */}
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content="CyberManipal | News from Manipal Information Security Team"
+        />
+        <meta
+          property="og:description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta property="og:image" content="/images/cybermanipal.png" />
+        <meta property="og:url" content="https://wearemist.in/news" />
+        <meta
+          property="og:site_name"
+          content="Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:title"
+          content="CyberManipal | Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta name="twitter:image" content="/images/cybermanipal.png" />
+        <meta name="twitter:site" content="@sudo_mist" />
+        <meta name="twitter:creator" content="@sudo_mist" />
       </Head>
       {/* Logo section */}
       <div className="text-left w-100 pl-0 md:pl-10">
@@ -176,7 +236,11 @@ const News = ({ news, categories, bgHolder }) => {
                 }}
               >
                 <Link
-                  href={"/news/category/" + item.split(" ").join("").toLowerCase() + "/1"}
+                  href={
+                    "/news/category/" +
+                    item.split(" ").join("").toLowerCase() +
+                    "/1"
+                  }
                 >
                   <a>
                     <div className="overlay flex flex-col justify-center">
@@ -192,18 +256,19 @@ const News = ({ news, categories, bgHolder }) => {
 
       {/* Subscibe Section */}
       <div className="text-center subscribe-section my-20">
-        <div className="overlay py-20">
+        <div className="overlay py-20 px-10 md:px-0">
           <h3 className="emphasis-heading text-4xl">
             Become a MISTy subscriber
           </h3>
           <p className="w-100 px-10 md:w-3/4 pb-5 mx-auto">
-            Let us send you a weekly digest about all that's going on in
-            CyberManipal.
+            Let us send you a weekly digest about all that's going around in
+            CyberManipal and MIST.
           </p>
           <div className="w-full text-center">
             <form onSubmit={subscribeUser}>
-              <div className="max-w-sm mx-auto p-1 pr-0 flex items-center">
+              <div className="max-w-sm mx-auto p-1 flex items-center">
                 <input
+                  id="inputEmail"
                   type="email"
                   placeholder="yourmail@example.com"
                   className="flex-1 appearance-none rounded shadow p-3 text-grey-dark mr-2 focus:outline-none text-gray-600"

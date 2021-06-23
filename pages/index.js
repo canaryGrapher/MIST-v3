@@ -144,7 +144,18 @@ export default function Home() {
             content="A team of Information and Network Security enthusiasts with the aim to spread the knowledge to other students with an interest in this ever-growing field of Computer Science known as cybersecurity. Our goal is to ensure that students approach this field the right way by providing them with a platform to enhance and practice their skills."
           />
           <meta name="robots" content="index, follow" />
+          <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+          <meta
+            name="keywords"
+            content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization"
+          />
+          <meta name="url" content="https://wearemist.in" />
+          <meta name="coverage" content="Worldwide" />
+          <meta name="target" content="all" />
+          <meta name="HandheldFriendly" content="True" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="canonical" href="https://wearemist.in" />
+          <meta name="reply-to" content="sudo@wearemist.in" />
           {/* OG meta tags */}
           <meta property="og:type" content="article" />
           <meta
@@ -157,8 +168,14 @@ export default function Home() {
           />
           <meta property="og:image" content="/images/mist_og.png" />
           <meta property="og:url" content="https://wearemist.in/" />
-          <meta property="og:site_name" content="Manipal Information Security Team" />
-          <meta name="twitter:title" content="Home | Manipal Information Security Team" />
+          <meta
+            property="og:site_name"
+            content="Manipal Information Security Team"
+          />
+          <meta
+            name="twitter:title"
+            content="Home | Manipal Information Security Team"
+          />
           <meta
             name="twitter:description"
             content="A team of Information and Network Security enthusiasts with the aim to spread the knowledge to other students with an interest in this ever-growing field of Computer Science known as cybersecurity. Our goal is to ensure that students approach this field the right way by providing them with a platform to enhance and practice their skills."
@@ -169,8 +186,8 @@ export default function Home() {
         </Head>
         <main>
           {/* Intro section */}
-          <div className="text-center flex flex-col justify-center min-h-screen">
-            <h1 className="text-center lg:text-9xl text-5xl font-black gradient-text emphasis-heading">
+          <div className="text-center flex flex-col justify-center min-h-screen min-w-screen">
+            <h1 className="text-center lg:text-9xl text-6xl font-black gradient-text emphasis-heading">
               Manipal Information <br /> Security Team
             </h1>
             <p className="lg:text-lg text-base text-gray-500 emphasis-heading hidden md:block">

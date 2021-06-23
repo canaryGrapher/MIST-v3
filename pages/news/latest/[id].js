@@ -9,10 +9,52 @@ const Latest = ({ news, numberOfPages, currentPage }) => {
   return (
     <div className="text-center min-h-screen py-20 container mx-auto">
       <Head>
-        <title>
-          Latest News | CyberManipal by Manipal Information Security Team
-        </title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Latest News | CyberManipal</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+        <meta
+          name="keywords"
+          content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization, news, cybermanipal, news"
+        />
+        <meta
+          name="url"
+          content={"https://wearemist.in/news/latest/" + currentPage}
+        />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
+        <link rel="icon" href="/cybermanipal_favicon.ico" />
+        <link rel="canonical" href="https://wearemist.in/news" />
+        <meta name="reply-to" content="sudo@wearemist.in" />
+        {/* OG meta tags */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Latest News | CyberManipal" />
+        <meta
+          property="og:description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta property="og:image" content="/images/cybermanipal.png" />
+        <meta
+          property="og:url"
+          content={"https://wearemist.in/news/latest/" + currentPage}
+        />
+        <meta
+          property="og:site_name"
+          content="Manipal Information Security Team"
+        />
+        <meta name="twitter:title" content="Latest News | CyberManipal" />
+        <meta
+          name="twitter:description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta name="twitter:image" content={"/images/cybermanipal.png"} />
+        <meta name="twitter:site" content="@sudo_mist" />
+        <meta name="twitter:creator" content="@sudo_mist" />
       </Head>
       <div className="container w-10/12 mx-auto">
         <div className="text-left pl-0 md:pl-10">

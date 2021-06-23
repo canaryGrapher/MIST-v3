@@ -36,6 +36,60 @@ const Latest = ({ newsItem, author, url }) => {
   const date = new Date(newsItem.date);
   return (
     <div className="min-h-screen flex flex-col justify-center text-gray-50 py-20">
+      <Head>
+        <title>{newsItem.newsHeading} | CyberManipal News</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta
+          name="description"
+          content={newsItem.description.split(".").slice(0, 2).join(". ")}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+        <meta
+          name="keywords"
+          content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization, news, cybermanipal, news"
+        />
+        <meta
+          name="url"
+          content={"https://wearemist.in/news/article/" + newsItem._id}
+        />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
+        <link rel="icon" href="/cybermanipal_favicon.ico" />
+        <link rel="canonical" href="https://wearemist.in/news" />
+        <meta name="reply-to" content="sudo@wearemist.in" />
+        {/* OG meta tags */}
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={newsItem.newsHeading + "| CyberManipal News"}
+        />
+        <meta
+          property="og:description"
+          content={newsItem.description.split(".").slice(0, 2).join(". ")}
+        />
+        <meta property="og:image" content={newsItem.highlightPhoto} />
+        <meta
+          property="og:url"
+          content={"https://wearemist.in/news/article/" + newsItem._id}
+        />
+        <meta
+          property="og:site_name"
+          content="Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:title"
+          content={newsItem.newsHeading + "| CyberManipal News"}
+        />
+        <meta
+          name="twitter:description"
+          content={newsItem.description.split(".").slice(0, 2).join(". ")}
+        />
+        <meta name="twitter:image" content={newsItem.highlightPhoto} />
+        <meta name="twitter:site" content="@sudo_mist" />
+        <meta name="twitter:creator" content="@sudo_mist" />
+      </Head>
       <div className="text-left w-100 pl-0 md:pl-10">
         <h1 className=" text-4xl emphasis-heading pl-5">CyberManipal.</h1>
         <p className=" text-sm font-thin emphasis-heading text-gray-600 pl-6">

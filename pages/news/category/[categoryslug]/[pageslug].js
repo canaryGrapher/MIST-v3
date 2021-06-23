@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { SITE_DOMAIN } from "../../../../utils/constants";
 import PaginationBar from "../../../../components/PaginationBar";
 import NewsHorizontal from "../../../../components/NewsHorizontal";
@@ -6,6 +7,60 @@ import NewsTile from "../../../../components/NewsTile";
 const Category = ({ categoryName, news, numberOfPages, currentPage }) => {
   return (
     <div className="min-h-screen text-center py-10">
+      <Head>
+        <title>{categoryName} tagged news | CyberManipal</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
+        <meta
+          name="keywords"
+          content="cybersecurity, manipal, manipal institute of technology, clubs, student clubs, student, organization, news, cybermanipal, news"
+        />
+        <meta
+          name="url"
+          content={"https://wearemist.in/news/category/" + categoryName}
+        />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
+        <link rel="icon" href="/cybermanipal_favicon.ico" />
+        <link rel="canonical" href="https://wearemist.in/news" />
+        <meta name="reply-to" content="sudo@wearemist.in" />
+        {/* OG meta tags */}
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={categoryName + " tagged news" + "| CyberManipal News"}
+        />
+        <meta
+          property="og:description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta property="og:image" content="/images/cybermanipal.png" />
+        <meta
+          property="og:url"
+          content={"https://wearemist.in/news/category/" + categoryName}
+        />
+        <meta
+          property="og:site_name"
+          content="Manipal Information Security Team"
+        />
+        <meta
+          name="twitter:title"
+          content={categoryName + " tagged news" + "| CyberManipal News"}
+        />
+        <meta
+          name="twitter:description"
+          content="Read latest news regarding cybersecurity and technology, and stay updated through this student run news page, straight from Manipal Institute of Technology."
+        />
+        <meta name="twitter:image" content={"/images/cybermanipal.png"} />
+        <meta name="twitter:site" content="@sudo_mist" />
+        <meta name="twitter:creator" content="@sudo_mist" />
+      </Head>
       <div
         className="categoryBar h-96 text-left w-screen mx-auto flex flex-col justify-center relative"
         style={{

@@ -40,7 +40,7 @@ const Footer = (props) => {
             </a>
           </p>
           <p className="text-sm text-green-300 hover:text-gray-200 cursor-pointer">
-            Privacy Policy
+            <Link href="/privacypolicy"><a>Privacy Policy</a></Link>
           </p>
           <p className="text-sm text-green-300 hover:text-gray-200 cursor-pointer">
             Editorial Policy

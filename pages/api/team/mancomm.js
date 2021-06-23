@@ -1,6 +1,5 @@
 import dbConnect from "../../../utils/dbConnect";
 import Mancomm from "../../../models/Mancomm";
-import bcryptjs from "bcryptjs";
 
 export default async function handler(req, res) {
   await dbConnect();
