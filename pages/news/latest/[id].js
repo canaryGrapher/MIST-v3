@@ -26,7 +26,7 @@ const Latest = ({ news, numberOfPages, currentPage }) => {
           <p className="px-10 md:w-3/4 pb-2 mx-auto">
             Latest news from CyberManipal, that matters.
           </p>
-          <p className="pb-7 text-gray-400">( Page {currentPage.toString()} )</p>
+          <p className="pb-7 text-gray-400">Page {currentPage.toString()}</p>
           <div className="main-news-heading grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="col-span-1">
               <NewsTile
@@ -62,7 +62,11 @@ const Latest = ({ news, numberOfPages, currentPage }) => {
           </div>
           {/* Pagination Bar */}
           <div className="mt-20">
-            <PaginationBar pages={numberOfPages} currentPage={currentPage} url="/news/latest" />
+            <PaginationBar
+              pages={numberOfPages}
+              currentPage={currentPage}
+              url="/news/latest"
+            />
           </div>
         </div>
       </div>

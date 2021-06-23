@@ -51,42 +51,42 @@ export default function Home() {
   const events = [
     {
       id: 1,
-      img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
+      img: "/images/events/cfe.png",
       title: "Cybersecurity for everyone",
       details:
         "One of our standard events meant to raise awareness about cybersecurity, the threats that the internet poses, the various ways in which the internet can spoof you, and at the same time presents people with a fair idea on how to guard against these very dangers.",
     },
     {
       id: 2,
-      img: "https://2.img-dpreview.com/files/p/E~TS940x788~articles/2988339509/BlogHeader_150-1-1800x0-c-default_copy.jpeg",
+      img: "/images/events/faceless.png",
       title: "Faceless",
       details:
         "A one-of-a-kind event that will put your investigative abilities and reasoning to the test. You will get the first-hand experience in using open source intelligence as a way to dox online identities.",
     },
     {
       id: 3,
-      img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
+      img: "/images/events/wtfctf.png",
       title: "CTF",
       details:
         "We, as a club, organise Capture the Flag events twice a year. With challenges spread out over multiple domains including web exploitation, pwning, reverse engineering, and cryptography, this event has garnered participation from over 7 countries this year. Having participated in CTFs as a team, we realise its importance for people who are delving into cybersecurity.",
     },
     {
       id: 4,
-      img: "https://assets.materialup.com/uploads/866896e1-fb71-4161-a1b3-0f9af08a68a8/preview.jpg",
+      img: "/images/events/ctrlc.png",
       title: "Ctrl+C",
       details:
         "Combining web development skills with a bit of cybersecurity knowledge, our event CTRL+C requires participants to perform two tasks. They need to clone a website, created from scratch by our team, and then go on to find out as much information as possible about any user who visits the hosted site. It is an ideal blend of technical and design skills. ",
     },
     {
       id: 5,
-      img: "http://incitrio.com/wp-content/uploads/2015/01/Apple_gray_logo.png",
+      img: "/images/events/smoked.png",
       title: "Smoked",
       details:
         "One of the most loved events of MIST- where you search deep in the websites to solve mind-boggling puzzles while racking your brains and tracking the clues to get to the top of the leaderboard. So get ready for some thrill coz it's gonna get SMOKED!",
     },
     {
       id: 6,
-      img: "https://cdn.vox-cdn.com/thumbor/NeSo4JAqv-fFJCIhb5K5eBqvXG4=/7x0:633x417/1200x800/filters:focal(7x0:633x417)/cdn.vox-cdn.com/assets/1311169/mslogo.jpg",
+      img: "/images/events/gamenights.jpeg",
       title: "Game Nights",
       details:
         "MIST organizes gaming nights every once in a while, which serve as a bonding experience between the club members. It involves various games for every type of enthusiast. From combats in Valorant to screwing up drawings in scribble. Whatever you feel like playing, you will always find company.",
@@ -146,7 +146,7 @@ export default function Home() {
           </div>
           {/* Who are we section */}
           <div className="text-center md:w-3/4 mx-auto px-5">
-          {/* <p className="emphasis-heading lg:text-6xl text-3xl rainbow-tag text-center mx-auto w-full">
+            {/* <p className="emphasis-heading lg:text-6xl text-3xl rainbow-tag text-center mx-auto w-full">
               #wearemist
             </p> */}
             <h2 className="text-5xl pb-5 rainbow-text">Who are we?</h2>
@@ -162,14 +162,14 @@ export default function Home() {
             </p>
           </div>
           {/* Quote section */}
-          <div className="lg:w-3/4 mx-auto px-5 mt-5 py-10">
-            <blockquote className="md:text-2xl text-lg font-black emphasis-heading text-image-beach">
+          <div className="lg:w-2/4 mx-auto px-5 mt-5 py-10">
+            <blockquote className="md:text-lg text-lg font-black emphasis-heading text-image-beach">
               "If you put a key under the mat for the cops, a burglar can find
               it, too. Criminals are using every technology tool at their
               disposal to hack into people’s accounts. If they know there’s a
               key hidden somewhere, they won’t stop until they find it."
             </blockquote>
-            <p className="text-center md:text-right text-gray-400 mt-5">
+            <p className="text-center text-gray-400 mt-5">
               - Timothy Donald Cook
             </p>
           </div>
@@ -189,13 +189,13 @@ export default function Home() {
             </div>
           </div>
           {/* Quote section */}
-          <div className="lg:w-3/4 mx-auto px-5 py-20">
-            <blockquote className="md:text-2xl text-lg font-black emphasis-heading text-image-beach">
+          <div className="lg:w-2/4 mx-auto px-5 mt-5 py-10">
+            <blockquote className="md:text-lg text-lg font-black emphasis-heading text-image-beach">
               "Arguing that you don’t care about the right to privacy because
               you have nothing to hide is no different than saying you don’t
               care about free speech because you have nothing to say."
             </blockquote>
-            <p className="text-center md:text-right text-gray-400 mt-5">
+            <p className="text-center text-gray-400 mt-5">
               - Edward Joseph Snowden
             </p>
           </div>

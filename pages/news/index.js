@@ -276,12 +276,12 @@ export const getStaticProps = async () => {
   const resCategories = await fetch(`${SITE_DOMAIN}/api/news/getcategories`);
   const categories = await resCategories.json();
   const bgHolder = [
-    "/images/1.jpg",
-    "/images/2.jpg",
-    "/images/3.jpg",
-    "/images/4.jpg",
-    "/images/5.jpg",
-    "/images/6.jpg",
+    "/images/categories/1.jpg",
+    "/images/categories/2.jpg",
+    "/images/categories/3.jpg",
+    "/images/categories/4.jpg",
+    "/images/categories/5.jpg",
+    "/images/categories/6.jpg",
   ];
   return {
     props: {

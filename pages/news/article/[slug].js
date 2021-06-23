@@ -1,8 +1,36 @@
 import Head from "next/head";
 import { SITE_DOMAIN } from "../../../utils/constants";
 import Link from "next/link";
-const month= ["January","February","March","April","May","June","July",
-            "August","September","October","November","December"];
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import {
+  EmailIcon,
+  FacebookIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
+const month = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 const Latest = ({ newsItem, author }) => {
   const linkToCategory = `/news/category/${newsItem.filtertag
@@ -26,7 +54,8 @@ const Latest = ({ newsItem, author }) => {
         <Link
           href={
             "/news/category/" +
-            newsItem.filtertag.split(" ").join("").toLowerCase() + "/1"
+            newsItem.filtertag.split(" ").join("").toLowerCase() +
+            "/1"
           }
         >
           <a className="cursor-pointer">
@@ -51,9 +80,14 @@ const Latest = ({ newsItem, author }) => {
             </div>
           </a>
         </Link>
-        <h3 className="text-2xl font-semibold text-green-500">{month[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()}</h3>
+        <h3 className="text-2xl font-semibold text-green-500">
+          {month[date.getMonth()] +
+            " " +
+            date.getDate() +
+            ", " +
+            date.getFullYear()}
+        </h3>
         <p className="text-lg whitespace-pre-line">{newsItem.description}</p>
-        {/* <p>{newsItem.link}</p> */}
         <p className="font-bold mt-10 mb-5">
           Abridged from{" "}
           <span className="bg-gray-600 p-2 rounded-sm">{newsItem.credit}</span>
@@ -64,6 +98,63 @@ const Latest = ({ newsItem, author }) => {
         >
           Click here to see the original post
         </a>
+      </div>
+      <div className="text-left md:w-1/2 px-5 mx-auto mt-10">
+        <p className="text-bold text-lg text-green-300">Share this article</p>
+        <div className="pt-3">
+          <FacebookShareButton
+            className="mr-5"
+            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            quote={newsItem.newsHeading}
+            hashtag="#wearemist"
+          >
+            <FacebookIcon className="rounded-full" size={40} />
+          </FacebookShareButton>
+
+          <EmailShareButton
+            className="mr-5"
+            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            subject="Check out this amazing article I found on CyberManipal"
+          >
+            <EmailIcon className="rounded-full" size={40} />
+          </EmailShareButton>
+
+          <LinkedinShareButton
+            className="mr-5"
+            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            title={newsItem.newsHeading}
+            source="https://wearemist.in/"
+            summary={newsItem.description}
+          >
+            <LinkedinIcon className="rounded-full" size={40} />
+          </LinkedinShareButton>
+
+          <TelegramShareButton
+            className="mr-5"
+            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            quote={newsItem.newsHeading}
+            hashtag="#wearemist"
+          >
+            <TelegramIcon className="rounded-full" size={40} />
+          </TelegramShareButton>
+
+          <TwitterShareButton
+            className="mr-5"
+            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            title={newsItem.newsHeading}
+            hashtags={["#wearemist", "#sudomist"]}
+          >
+            <TwitterIcon className="rounded-full" size={40} />
+          </TwitterShareButton>
+
+          <WhatsappShareButton
+            className="mr-5"
+            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            title={newsItem.newsHeading}
+          >
+            <WhatsappIcon className="rounded-full" size={40} />
+          </WhatsappShareButton>
+        </div>
       </div>
     </div>
   );

@@ -6,9 +6,9 @@ const PaginationBar = (props) => {
     pageCount.push(i);
   }
   const selectedTab =
-    "mx-2 p-2 rounded-full flex flex-col justify-center bg-green-500 text-gray-50 cursor-not-allowed";
+    "mx-2 w-7 h-7 rounded-full flex items-center justify-center text-green-300 cursor-not-allowed";
   const notSelectedTab =
-    "mx-2 p-2 rounded-full flex flex-col justify-center bg-gray-100 hover:bg-blue-800 hover:text-gray-50 text-black cursor-pointer";
+    "mx-2 w-7 h-7 rounded-full flex items-center justify-center bg-gray-100 hover:bg-blue-800 text-gray-700 hover:text-gray-50 text-black cursor-pointer";
   return (
     <div className="mx-auto">
       <ul className="pagination max-w-min mx-auto text-gray-800 flex flex-row justify-evenly rounded-full px-4 py-2">

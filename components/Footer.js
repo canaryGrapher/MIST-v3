@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = (props) => {
   return (
-    <div className="footer py-10 min-h-52 text-gray-50 bg-gray-900 grid md:grid-cols-3 sm:grid-cols-2">
+    <div className="footer pt-10 min-h-52 text-gray-50 bg-gray-900 grid md:grid-cols-3 sm:grid-cols-2">
       <div className="text-center flex flex-col justify-evenly col-span-2 md:col-span-1">
         <img
           src="/images/logoLight.png"
@@ -47,6 +47,57 @@ const Footer = (props) => {
           </p>
         </div>
       </div>
+      <div className="md:col-span-3 col-span-2 pt-5 mt-20 bg-gray-800">
+        <div className="row">
+          <div className="mx-auto text-center">
+            <p className="m-0 p-0 text-center text-2xl text-green-300">
+              Connect with us
+            </p>
+            <a
+              href="https://www.instagram.com/sudo.mist/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="px-10 pt-5 col-md-2 col-4 text-center fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/wearemist.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="px-10 pt-5 col-md-2 col-4 text-center fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/manipal-information-security-team"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="px-10 pt-5 col-md-2 col-4 text-center fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/MIST1819"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="px-10 pt-5 col-md-2 col-4 text-center fab fa-github"></i>
+            </a>
+            <a
+              href="https://twitter.com/sudo_mist"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="px-10 pt-5 col-md-2 col-4 text-center fab fa-twitter"></i>
+            </a>
+            <a href="mailto:sudo@wearemist.in">
+              <i className="px-10 pt-5 col-md-2 col-4 text-center fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        <div className="row bg-gray-700 text-center py-5 mt-5">
+          <p>Manipal Information Security Team, Manipal</p>
+        </div>
+      </div>
+
       <style jsx>{`
         .footer {
           width: 100%;
