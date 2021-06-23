@@ -131,8 +131,41 @@ export default function Home() {
     <Fragment>
       <div className="container pb-15 pt-5 flex flex-col justify-center w-screen mx-auto">
         <Head>
-          <title>Manipal Information Security Team</title>
+          <title>
+            Manipal Information Security Team | The cybersecurity club from MIT,
+            Manipal
+          </title>
+          <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0"
+          />
+          <meta
+            name="description"
+            content="A team of Information and Network Security enthusiasts with the aim to spread the knowledge to other students with an interest in this ever-growing field of Computer Science known as cybersecurity. Our goal is to ensure that students approach this field the right way by providing them with a platform to enhance and practice their skills."
+          />
+          <meta name="robots" content="index, follow" />
           <link rel="icon" href="/favicon.ico" />
+          {/* OG meta tags */}
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:title"
+            content="Manipal Information Security Team | The cybersecurity club from MIT, Manipal"
+          />
+          <meta
+            property="og:description"
+            content="A team of Information and Network Security enthusiasts with the aim to spread the knowledge to other students with an interest in this ever-growing field of Computer Science known as cybersecurity. Our goal is to ensure that students approach this field the right way by providing them with a platform to enhance and practice their skills."
+          />
+          <meta property="og:image" content="/images/mist_og.png" />
+          <meta property="og:url" content="https://wearemist.in/" />
+          <meta property="og:site_name" content="Manipal Information Security Team" />
+          <meta name="twitter:title" content="Home | Manipal Information Security Team" />
+          <meta
+            name="twitter:description"
+            content="A team of Information and Network Security enthusiasts with the aim to spread the knowledge to other students with an interest in this ever-growing field of Computer Science known as cybersecurity. Our goal is to ensure that students approach this field the right way by providing them with a platform to enhance and practice their skills."
+          />
+          <meta name="twitter:image" content="/images/mist_og.png" />
+          <meta name="twitter:site" content="@sudo_mist" />
+          <meta name="twitter:creator" content="@sudo_mist" />
         </Head>
         <main>
           {/* Intro section */}

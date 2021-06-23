@@ -55,9 +55,9 @@ const Latest = ({ newsItem, author, url }) => {
           }
         >
           <a className="cursor-pointer">
-            <p className="my-3 py-1 px-2 bg-green-500 max-w-max hover:underline">
+            <article className="my-3 py-1 px-2 bg-green-500 max-w-max hover:underline">
               {newsItem.filtertag}
-            </p>
+            </article>
           </a>
         </Link>
         <Link href={"/news/author/" + author.username}>
