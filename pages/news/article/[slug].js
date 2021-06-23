@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { SITE_DOMAIN } from "../../../utils/constants";
 import Link from "next/link";
 import {
   EmailShareButton,
@@ -17,6 +16,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "react-share";
+import { SITE_DOMAIN } from "../../../utils/constants";
 const month = [
   "January",
   "February",
@@ -32,11 +32,7 @@ const month = [
   "December",
 ];
 
-const Latest = ({ newsItem, author }) => {
-  const linkToCategory = `/news/category/${newsItem.filtertag
-    .split(" ")
-    .join("")
-    .toLowerCase()}/1`;
+const Latest = ({ newsItem, author, url }) => {
   const date = new Date(newsItem.date);
   return (
     <div className="min-h-screen flex flex-col justify-center text-gray-50 py-20">
@@ -89,8 +85,10 @@ const Latest = ({ newsItem, author }) => {
         </h3>
         <p className="text-lg whitespace-pre-line">{newsItem.description}</p>
         <p className="font-bold mt-10 mb-5">
-          Abridged from{" "}
-          <span className="bg-gray-600 p-2 rounded-sm">{newsItem.credit}</span>
+          Abridged from
+          <span className="bg-gray-600 p-2 rounded-sm ml-2">
+            {newsItem.credit}
+          </span>
         </p>
         <a
           href={newsItem.link}
@@ -99,60 +97,86 @@ const Latest = ({ newsItem, author }) => {
           Click here to see the original post
         </a>
       </div>
-      <div className="text-left md:w-1/2 px-5 mx-auto mt-10">
-        <p className="text-bold text-lg text-green-300">Share this article</p>
+      <div className="text-left md:w-1/2 px-5 mx-auto mt-5">
+        <p className="text-bold text-base text-green-300">Share this article</p>
         <div className="pt-3">
           <FacebookShareButton
             className="mr-5"
-            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
-            quote={newsItem.newsHeading}
+            url={`${url}/news/article/${newsItem._id}`}
+            quote={
+              "Check out this amazing article I found on CyberManipal, a news page by the Manipal Information Security Team.\n\n" +
+              newsItem.newsHeading +
+              "\n" +
+              newsItem.description
+            }
             hashtag="#wearemist"
           >
-            <FacebookIcon className="rounded-full" size={40} />
+            <FacebookIcon className="rounded-full" size={30} />
           </FacebookShareButton>
 
           <EmailShareButton
             className="mr-5"
-            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
-            subject="Check out this amazing article I found on CyberManipal"
+            url={`${url}/news/article/${newsItem._id}`}
+            subject={
+              "Check out this amazing article I found on CyberManipal, a news page by the Manipal Information Security Team.\n\n" +
+              newsItem.newsHeading +
+              "\n" +
+              newsItem.description +
+              "\n\nView the article online on their website from the link below."
+            }
           >
-            <EmailIcon className="rounded-full" size={40} />
+            <EmailIcon className="rounded-full" size={30} />
           </EmailShareButton>
 
           <LinkedinShareButton
             className="mr-5"
-            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
+            url={`${url}/news/article/${newsItem._id}`}
             title={newsItem.newsHeading}
             source="https://wearemist.in/"
-            summary={newsItem.description}
+            summary={
+              "CyberManipal | News from Manipal Information Security Team\n" +
+              newsItem.description
+            }
           >
-            <LinkedinIcon className="rounded-full" size={40} />
+            <LinkedinIcon className="rounded-full" size={30} />
           </LinkedinShareButton>
 
           <TelegramShareButton
             className="mr-5"
-            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
-            quote={newsItem.newsHeading}
+            url={`${url}/news/article/${newsItem._id}`}
+            quote={
+              "CyberManipal | News from Manipal Information Security Team\n" +
+              newsItem.newsHeading +
+              "\n\nRead the article here:\n"
+            }
             hashtag="#wearemist"
           >
-            <TelegramIcon className="rounded-full" size={40} />
+            <TelegramIcon className="rounded-full" size={30} />
           </TelegramShareButton>
 
           <TwitterShareButton
             className="mr-5"
-            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
-            title={newsItem.newsHeading}
-            hashtags={["#wearemist", "#sudomist"]}
+            url={`${url}/news/article/${newsItem._id}`}
+            title={
+              newsItem.newsHeading +
+              "\nFrom CyberManipal - News from @sudo_mist\n\nRead the article here:"
+            }
+            hashtags={["wearemist", "sudomist"]}
+            related={["sudo_mist"]}
           >
-            <TwitterIcon className="rounded-full" size={40} />
+            <TwitterIcon className="rounded-full" size={30} />
           </TwitterShareButton>
 
           <WhatsappShareButton
             className="mr-5"
-            url={SITE_DOMAIN + "/news/article/" + newsItem._id}
-            title={newsItem.newsHeading}
+            url={`${url}/news/article/${newsItem._id}`}
+            title={
+              "From CyberManipal - News from from Manipal Information Security Team\n" +
+              newsItem.newsHeading +
+              "\n\nRead the article at:\n"
+            }
           >
-            <WhatsappIcon className="rounded-full" size={40} />
+            <WhatsappIcon className="rounded-full" size={30} />
           </WhatsappShareButton>
         </div>
       </div>
@@ -161,8 +185,6 @@ const Latest = ({ newsItem, author }) => {
 };
 
 export default Latest;
-
-// [{params: {page: pageNumber}}]
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${SITE_DOMAIN}/api/news?page=paths`);
@@ -197,6 +219,7 @@ export const getStaticProps = async (context) => {
     props: {
       newsItem: news.data[0],
       author: author.data[0],
+      url: SITE_DOMAIN,
     },
     revalidate: 7200,
   };

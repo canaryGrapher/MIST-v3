@@ -2,6 +2,8 @@
   "name": "wearemist",
   "version": "0.1.0",
   "private": true,
+  "author": "Yash Aryan",
+  "description": "The third version of the website of Manipal Information Security Team",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
