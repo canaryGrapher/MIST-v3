@@ -162,5 +162,6 @@ export const getStaticProps = async () => {
       mancomm,
       workcomm,
     },
+    revalidate: 60,
   };
 };

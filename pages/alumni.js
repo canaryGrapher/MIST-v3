@@ -108,5 +108,6 @@ export const getStaticProps = async () => {
       alumni,
       batches,
     },
+    revalidate: 60,
   };
 };

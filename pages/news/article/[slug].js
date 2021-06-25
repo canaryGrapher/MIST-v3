@@ -274,5 +274,6 @@ export const getStaticProps = async (context) => {
       author: author.data[0],
       url: SITE_DOMAIN,
     },
+    revalidate: 60,
   };
 };

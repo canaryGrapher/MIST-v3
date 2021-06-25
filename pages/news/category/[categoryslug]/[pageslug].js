@@ -178,6 +178,6 @@ export const getStaticProps = async (context) => {
       numberOfPages: Math.ceil(Number(elementsCount.count) / 12),
       currentPage: context.params.pageslug,
     },
-    revalidate: 7200,
+    revalidate: 60,
   };
 };

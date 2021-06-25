@@ -147,5 +147,6 @@ export const getStaticProps = async (context) => {
       author: author.data[0],
       news: allNews.data,
     },
+    revalidate: 60,
   };
 };

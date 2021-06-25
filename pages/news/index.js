@@ -354,5 +354,6 @@ export const getStaticProps = async () => {
       categories,
       bgHolder,
     },
+    revalidate: 60,
   };
 };

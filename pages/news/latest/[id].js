@@ -176,5 +176,6 @@ export const getStaticProps = async (context) => {
       numberOfPages,
       currentPage: context.params.id,
     },
+    revalidate: 60,
   };
 };
