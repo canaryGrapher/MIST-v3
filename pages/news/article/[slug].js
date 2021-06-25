@@ -260,7 +260,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const resNews = await fetch(
     `${SITE_DOMAIN}/api/news/getparticular?id=${context.params.slug}`
   );

@@ -160,7 +160,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const resCategoryNews = await fetch(
     `${SITE_DOMAIN}/api/news/categorynews?category=${
       context.params.categoryslug
