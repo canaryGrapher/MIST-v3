@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Custom404() {
   return (
-    <div className="min-h-screen flex flex-col justify-center text-center container">
+    <div className="min-h-screen min-w-screen flex flex-col justify-center text-center container">
       <Head>
         <title>404 not found | MIST</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />

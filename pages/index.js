@@ -187,7 +187,7 @@ export default function Home() {
         <main>
           {/* Intro section */}
           <div className="text-center flex flex-col justify-center min-h-screen min-w-screen">
-            <h1 className="text-center lg:text-9xl text-6xl font-black gradient-text emphasis-heading">
+            <h1 className="text-center lg:text-9xl text-5xl font-black gradient-text emphasis-heading">
               Manipal Information <br /> Security Team
             </h1>
             <p className="lg:text-lg text-base text-gray-500 emphasis-heading hidden md:block">
