@@ -335,7 +335,7 @@ const News = ({ news, categories, bgHolder }) => {
 
 export default News;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const resNews = await fetch(`${SITE_DOMAIN}/api/news?page=home`);
   const news = await resNews.json();
   const resCategories = await fetch(`${SITE_DOMAIN}/api/news/getcategories`);
