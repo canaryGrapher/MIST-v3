@@ -354,6 +354,5 @@ export const getServerSideProps = async () => {
       categories,
       bgHolder,
     },
-    revalidate: 7200,
   };
 };

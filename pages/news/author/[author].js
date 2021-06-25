@@ -110,8 +110,6 @@ const Latest = ({ author, news }) => {
 
 export default Latest;
 
-// [{params: {page: pageNumber}}]
-
 export const getStaticPaths = async () => {
   const resAuthor = await fetch(`${SITE_DOMAIN}/api/news/writer?username=all`);
   const author = await resAuthor.json();
@@ -145,6 +143,5 @@ export const getServerSideProps = async (context) => {
       author: author.data[0],
       news: allNews.data,
     },
-    revalidate: 7200,
   };
 };

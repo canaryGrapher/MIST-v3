@@ -176,6 +176,5 @@ export const getServerSideProps = async (context) => {
       numberOfPages,
       currentPage: context.params.id,
     },
-    revalidate: 7200,
   };
 };

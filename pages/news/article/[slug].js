@@ -243,7 +243,6 @@ export default Latest;
 export const getStaticPaths = async () => {
   const res = await fetch(`${SITE_DOMAIN}/api/news?page=paths`);
   const newsIds = await res.json();
-  const numberOfPages = Math.ceil(newsIds.data.length / 12);
   const paths = [];
   newsIds.data.forEach((element) => {
     const item = {
@@ -275,6 +274,5 @@ export const getServerSideProps = async (context) => {
       author: author.data[0],
       url: SITE_DOMAIN,
     },
-    revalidate: 7200,
   };
 };

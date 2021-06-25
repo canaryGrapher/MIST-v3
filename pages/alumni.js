@@ -108,6 +108,5 @@ export const getServerSideProps = async () => {
       alumni,
       batches,
     },
-    revalidate: 86400,
   };
 };

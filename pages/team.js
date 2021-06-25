@@ -8,7 +8,10 @@ const Team = ({ board, mancomm, workcomm }) => {
       <Head>
         <title>Meet the team | Manipal Information Security Team</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="description" content="Meet the awesome team of Manipal Information Security Team." />
+        <meta
+          name="description"
+          content="Meet the awesome team of Manipal Information Security Team."
+        />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Yash Aryan, yash.aryan@aol.com" />
         <meta
@@ -159,6 +162,5 @@ export const getServerSideProps = async () => {
       mancomm,
       workcomm,
     },
-    revalidate: 86400,
   };
 };
