@@ -92,6 +92,7 @@ export const MakeCard = (socialName, link, fontSize, gap) => {
           <i className="fab fa-facebook-f"></i>
         </a>
       );
+      break;
     case "instagram":
       iconJsx = (
         <a
