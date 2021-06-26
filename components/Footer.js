@@ -40,7 +40,9 @@ const Footer = (props) => {
             </a>
           </p>
           <p className="text-sm text-green-300 hover:text-gray-200 cursor-pointer">
-            <Link href="/privacypolicy"><a>Privacy Policy</a></Link>
+            <Link href="/privacypolicy">
+              <a>Privacy Policy</a>
+            </Link>
           </p>
           <p className="text-sm text-green-300 hover:text-gray-200 cursor-pointer">
             Editorial Policy
@@ -75,7 +77,7 @@ const Footer = (props) => {
               <i className="px-10 pt-5 col-md-2 col-4 text-center fab fa-linkedin-in"></i>
             </a>
             <a
-              href="https://github.com/MIST1819"
+              href="https://github.com/ManipalInformationSecurityTeam/"
               target="_blank"
               rel="noopener noreferrer"
             >
