@@ -6,7 +6,7 @@ const TeamCard = (props) => {
     socialInfo.push(item);
   }
   const socialData = socialInfo.map((key) => {
-    return MakeCard(key, props.social[key], "text-xl", "mx-5");
+    return MakeCard(key, props.social[key], "text-xl", "mx-3");
   });
   const imageSize =
     props.category === "board" || props.category === "mancomm"
@@ -17,7 +17,7 @@ const TeamCard = (props) => {
       <img className={imageSize} src={props.photo} alt={props.name} />
       <div className="pt-4 pb-1 px-6">
         <p className="text-2xl font-semibold text-gray-200">{props.name}</p>
-        <p className="text-gray-500">
+        <p className="text-green-300">
           {props.category === "board" ? props.position : null}
         </p>
         <p className="py-1 text-lg text-gray-400 w-3/4 mx-auto">
