@@ -1,75 +1,14 @@
-# MongoDB and Mongoose with Next.js
+# Maintenance guide for the website
+The app is written in NextJS, for the [Manipal Information Security Team](https://wearemist.in/). Here are a few guidelines you'll need to follow for the handling of the website.
 
-This example shows how you can use a MongoDB database to support your Next.js application.
+## Hosting the website
+The latest copy of the code is stored on [this repository](https://github.com/ManipalInformationSecurityTeam/MIST-v3). If you need to redeploy, or change hosting, use this repository so that it would be easier to maintain in the future. The current website is hosted on Vercel, but you can change it if you are more comfortable with some other platform. The good thing about Vercel is that it will automaticall redeploy if there are changes in your repository. 
+There are two different repositories that you'll need to host in order for the website to work. Deploy these projects in the given oder, because the frontend needs the serverless functions to be running before it is deployed.
+- Serverless functions
+- The main website
+You'll also need to set up the environment variables on your hosting platform so that the app works properly. Refer to [example.env.local](https://github.com/canaryGrapher/MIST-v3/blob/main/example.env.local) for the required enviroment variables. This file is saved as .env.local, or if the hosting service allows you to save these environment variables in the dashboard itself, you could ignore creating that file. This file needs to be kept a secret and a local copy could be found with the current web development head of the club.
 
-**Pet** is an application that allows users to add their pets' information (e.g., name, owner's name, diet, age, dislikes, likes, and photo). They can also delete it or edit it anytime.
-
-## Deploy your own
-
-Once you have access to [the environment variables you'll need](#step-2-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose&project-name=with-mongodb-mongoose&repository-name=with-mongodb-mongoose&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose%23step-2-set-up-environment-variables)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-mongodb-mongoose with-mongodb-mongoose-app
-# or
-yarn create next-app --example with-mongodb-mongoose with-mongodb-mongoose-app
-```
-
-## Configuration
-
-### Step 1. Get the connection string of your MongoDB server
-
-In the case of MongoDB Atlas, it should be a string like this:
-
-```
-mongodb+srv://<username>:<password>@my-project-abc123.mongodb.net/test?retryWrites=true&w=majority
-```
-
-For more details, follow this [MongoDB Guide](https://docs.mongodb.com/guides/server/drivers/) on how to connect to MongoDB.
-
-### Step 2. Set up environment variables
-
-Copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
-
-```bash
-cp .env.local.example .env.local
-```
-
-Then set each variable on `.env.local`:
-
-- `MONGODB_URI` should be the MongoDB connection string you got from step 1.
-
-### Step 3. Run Next.js in development mode
-
-```bash
-npm install
-npm run dev
-
-# or
-
-yarn install
-yarn dev
-```
-
-Your app should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
-
-## Deploy on Vercel
-
-You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-#### Deploy Your Local Project
-
-To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/import/git?utm_source=github&utm_medium=readme&utm_campaign=next-example).
-
-**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
-
-#### Deploy from Our Template
-
-Alternatively, you can deploy using our template by clicking on the Deploy button below.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose&project-name=with-mongodb-mongoose&repository-name=with-mongodb-mongoose&env=MONGODB_URI&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB&envLink=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb-mongoose%23step-2-set-up-environment-variables)
+## Adding news team members
+You can directly add members to the website by using the Postman collection, usually available with the current web development head of the club. You'll also need an API key so that your requests could be validated by the app. 
+Now, all the current team members' images are stored on [Flickr](https://www.flickr.com/). This is important because team members change every year and this data is not permanent. Also make sure that you organize images in albums for different kind of members. This will make sure that you do not spend eternity finding image of a person who has left the club. If you are directly entering data into the MongoDB database, you need to provide a "No profile Image" photo compulsorily if a member's image is not available. However, this is not the case if you are using the postman collection because it is handled automatically by mongoose. 
+**#Note:** Make sure that you do not change the order of Board members while you are uploading data. It should be uploaded in the same order as it is on the current website. Order doesn't matter for other members, i.e. ManComm or the WorkComm members.
