@@ -132,38 +132,9 @@ const Category = ({ categoryName, news, numberOfPages, currentPage }) => {
 
 export default Category;
 
-export const getStaticPaths = async () => {
-  const resCategories = await fetch(`${SITE_DOMAIN}/api/news/getcategories`);
-  const categories = await resCategories.json();
-  let paths = [];
-  for (let element of categories.data) {
-    const resCategoryInfo = await fetch(
-      `${SITE_DOMAIN}/api/news/categoryinfo?category=${element
-        .split(" ")
-        .join("")
-        .toLowerCase()}`
-    );
-    const categoryInfo = await resCategoryInfo.json();
-    for (let count = 1; count <= Math.ceil(categoryInfo.count / 12); count++) {
-      const item = {
-        params: {
-          categoryslug: element.split(" ").join("").toLowerCase(),
-          pageslug: count.toString(),
-        },
-      };
-      paths.push(item);
-    }
-  }
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const resCategoryNews = await fetch(
-    `${SITE_DOMAIN}/api/news/categorynews?category=${
-      context.params.categoryslug
+    `${SITE_DOMAIN}/api/news/categorynews?category=${context.params.categoryslug
     }&page=${context.params.pageslug - 1}`
   );
   const categoryNews = await resCategoryNews.json();

@@ -240,26 +240,7 @@ const Latest = ({ newsItem, author, url }) => {
 
 export default Latest;
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${SITE_DOMAIN}/api/news?page=paths`);
-  const newsIds = await res.json();
-  const paths = [];
-  newsIds.data.forEach((element) => {
-    const item = {
-      params: {
-        slug: element._id,
-      },
-    };
-    paths.push(item);
-  });
-
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const resNews = await fetch(
     `${SITE_DOMAIN}/api/news/getparticular?id=${context.params.slug}`
   );

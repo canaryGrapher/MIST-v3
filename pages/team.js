@@ -148,7 +148,7 @@ const Team = ({ board, mancomm, workcomm }) => {
 
 export default Team;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const resBoard = await fetch(`${SITE_DOMAIN}/api/team/board`);
   const board = await resBoard.json();
   const resMancomm = await fetch(`${SITE_DOMAIN}/api/team/mancomm`);

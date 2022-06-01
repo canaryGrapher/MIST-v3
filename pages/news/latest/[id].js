@@ -142,26 +142,7 @@ export default Latest;
 
 // [{params: {page: pageNumber}}]
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${SITE_DOMAIN}/api/news?page=paths`);
-  const newsIds = await res.json();
-  const numberOfPages = Math.ceil(newsIds.data.length / 12);
-  const paths = [];
-  for (let pageNumber = 1; pageNumber <= numberOfPages; pageNumber++) {
-    const item = {
-      params: {
-        id: pageNumber.toString(),
-      },
-    };
-    paths.push(item);
-  }
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const resNews = await fetch(
     `${SITE_DOMAIN}/api/news?page=${context.params.id - 1}`
   );

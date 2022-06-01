@@ -98,7 +98,7 @@ const Network = ({ alumni, batches }) => {
 
 export default Network;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const resAlumni = await fetch(`${SITE_DOMAIN}/api/alumni`);
   const alumni = await resAlumni.json();
   const resBatches = await fetch(`${SITE_DOMAIN}/api/alumni/boardyears`);

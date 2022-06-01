@@ -110,26 +110,7 @@ const Latest = ({ author, news }) => {
 
 export default Latest;
 
-export const getStaticPaths = async () => {
-  const resAuthor = await fetch(`${SITE_DOMAIN}/api/news/writer?username=all`);
-  const author = await resAuthor.json();
-  const paths = [];
-  author.data.forEach((element) => {
-    const item = {
-      params: {
-        author: element,
-      },
-    };
-    paths.push(item);
-  });
-
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   // const resNews = await fetch(
   //   `${SITE_DOMAIN}/api/news/getparticular?id=${context.params.author}`
   // );
